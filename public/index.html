@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Blockchain Donation</title>
+  <style>
+    /* styling sederhana */
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: auto; }
+    .campaign { border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; }
+  </style>
+</head>
+<body>
+  <h1>Blockchain Donation</h1>
+  <h2>Daftar Kampanye</h2>
+  <div id="campaign-list">
+    <p>Loading campaigns...</p>
+  </div>
+
+  <script>
+    async function loadCampaigns() {
+      const listEl = document.getElementById("campaign-list");
+      try {
+        const res = await fetch("/api/campaigns");
+        const campaigns = await res.json();
+        if (campaigns.length === 0) {
+          listEl.innerHTML = "<p>Belum ada kampanye.</p>";
+          return;
+        }
+        listEl.innerHTML = ""; // bersihkan loading
+        campaigns.forEach(c => {
+          const div = document.createElement("div");
+          div.className = "campaign";
+          div.innerHTML = `
+            <h3>${c.title}</h3>
+            <p>${c.description}</p>
+            <p><strong>Target: </strong>Rp ${c.targetAmount.toLocaleString()}</p>
+          `;
+          listEl.appendChild(div);
+        });
+      } catch (err) {
+        listEl.innerHTML = "<p>Gagal memuat kampanye.</p>";
+      }
+    }
+    loadCampaigns();
+  </script>
+</body>
+</html>
