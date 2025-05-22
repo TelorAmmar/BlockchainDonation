@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        body {
+            @apply text-[#1E1E1E] bg-[#F8F9FA];
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <div class="h-[139px] flex items-center justify-between px-20">
+        <!-- LOGO -->
+        <h1 class="font-bold text-5xl text-[#1F7D53]">
+            Logo
+        </h1>
+
+        <!-- NAVIGATION -->
+        <div class="flex justify-between items-center gap-x-[97px]">
+            <div class="flex justify-between gap-x-[21px]">
+                <a href="#" class="font-bold text-[#196442]">Beranda</a>
+                <a href="#">Donasi</a>
+                <a href="#">Tentang Kami</a>
+            </div>
+
+            <div class="flex justify-between gap-x-[21px] items-center">
+                <a href="#">Masuk</a>
+                <a href="#" class="bg-[#1F7D53] text-white rounded-xl px-5 py-3">Daftar</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="px-20 py-14 space-y-10">
+        <h1 class="font-bold text-5xl">Detail Donasi</h1>
+        
+        <div class="grid grid-cols-12 gap-10">
+            <div class="col-span-8 bg-white rounded-xl p-8 space-y-5">
+                <img src="./assets/images/donation-bg.png">
+
+                <h3 class="text-2xl font-bold">Kirim bantuan untuk warga Palestina</h3>
+
+                <div class="flex gap-x-5 items-center">
+                    <h3 class="text-xl font-bold text-[#1F7D53]">Rp. 25.000.000</h3>
+                    <p class="text-[#8E98A8]">Terkumpul dari</p>
+                    <h3 class="text-xl font-bold">Rp. 650.000.000</h3>
+                </div>
+
+                <div class="relative w-full rounded-full h-3 bg-[#E9F2EE]">
+                    <div class="absolute rounded-full inset-0 h-3 bg-[#1F7D53] w-[30%]"></div>
+                </div>
+
+                <div class="flex gap-x-5 items-center">
+                    <img src="./assets/images/partner-1.png" class="h-12 object-contain">
+                    <div class="flex gap-x-2 items-center">
+                        <p class="text-xl">Dompet Dhuafa</p>
+                        <img src="./assets/vectors/verified.png" class="size-5 object-contain">
+                    </div>
+                </div>
+
+                <p class="text-[#8E98A8] whitespace-pre-line">Setelah serangan demi serangan dilancarkan Zionis Israel di Jalur Gaza, Palestina. Salah satu yang paling berdampak dari serangan ini adalah membludaknya rumah sakit, sementara itu listrik padam, pasokan air terputus.
+
+Konflik antara pejuang Palestina, Hamas dan Israel yang memanas sejak kaum Zionis Israel mencaplok tanah, kebebasan dan negara Palestina sejak 50 tahun silam. Penjajahan, perampasan, kekerasan bagi warga Palestina terus terjadi, bahkan warga Palestina dilarang dan diserang saat beribadah di Masjid Al Aqsa, kiblat pertama kaum muslimin.
+
+Kini gencatan senjata terjadi dan bantuan dari luar semakin terbuka masuk ke Gaza. Sahabat, atas nama kemanusiaan, mari kita sisihkan sebagian rezeki kita untuk membantu bangkitnya saudara-saudara muslim kita di Palestina. Setiap donasi dan sedekah yang kita berikan akan menjadi obat, bantuan pangan, air bersih, selimut bagi warga Palestina yang membutuhkan.</p>
+            </div>
+
+            <div class="col-span-4 bg-white rounded-xl p-8 space-y-5 h-min">
+                <h3 class="text-2xl font-bold">Kirim Donasi</h3>
+
+                <div class="space-y-5">
+                    <div class="space-y-2">
+                        <p>Nominal</p>
+                        <h3 class="text-xl font-bold rounded-xl w-full border border-[#8E98A880] p-3">Rp 30.000</h3>
+                    </div>
+
+                    <div class="space-y-2">
+                        <p>Pilih Nominal</p>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button class="rounded-xl text-white py-2 bg-[#1F7D53] font-bold">Rp 30.000</button>
+                            <button class="rounded-xl py-2 font-bold border border-[#8E98A880]">Rp 50.000</button>
+                            <button class="rounded-xl py-2 font-bold border border-[#8E98A880]">Rp 75.000</button>
+                            <button class="rounded-xl py-2 font-bold border border-[#8E98A880]">Rp 100.000</button>
+                            <button class="rounded-xl py-2 font-bold border border-[#8E98A880]">Rp 200.000</button>
+                            <button class="rounded-xl py-2 font-bold border border-[#8E98A880]">Rp 500.000</button>
+                        </div>
+                        <p class="text-[#8E98A8]">Minimum donasi Rp 10.000</p>
+                    </div>
+
+                </div>
+                <a href="./donation-detail-2.html" class="block text-center rounded-xl text-white py-2 bg-[#1F7D53] font-bold w-full">Selanjutnya</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="bg-[#0B2C1D] px-20 py-14 space-y-16 text-white">
+        <div class="flex justify-between">
+            <div class="space-y-5">
+                <h1 class="font-bold text-5xl text-[#1F7D53]">
+                    Logo
+                </h1>
+                <p>Subscribe untuk mendapatkan info terbaru kami</p>
+                <div class="rounded-full border border-white p-3 flex justify-between">
+                    <input type="text" placeholder="Masukkan Email" class="flex-1">
+                    <div class="size-7 flex items-center justify-center rounded-full bg-[#1F7D53]">
+                        <img src="./assets/icons/arrow-right.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="gap-y-3 flex flex-col">
+                <p>Dukungan</p>
+                <a href="#" class="text-[#8E98A8]">FAQ & Privacy Policy</a>
+                <a href="#" class="text-[#8E98A8]">Tentang</a>
+                <a href="#" class="text-[#8E98A8]">Hubungi Kami</a>
+                <a href="#" class="text-[#8E98A8]">Partner Kami</a>
+            </div>
+        </div>
+        <p class="text-center">© 2025 Blockchain Donation Inc. Copyright and rights reserved</p>
+    </div>
+</body>
+
+</html>

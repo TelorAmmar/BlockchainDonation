@@ -1,47 +1,246 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Blockchain Donation</title>
-  <style>
-    /* styling sederhana */
-    body { font-family: Arial, sans-serif; max-width: 900px; margin: auto; }
-    .campaign { border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; }
-  </style>
-</head>
-<body>
-  <h1>Blockchain Donation</h1>
-  <h2>Daftar Kampanye</h2>
-  <div id="campaign-list">
-    <p>Loading campaigns...</p>
-  </div>
+<!doctype html>
+<html>
 
-  <script>
-    async function loadCampaigns() {
-      const listEl = document.getElementById("campaign-list");
-      try {
-        const res = await fetch("/api/campaigns");
-        const campaigns = await res.json();
-        if (campaigns.length === 0) {
-          listEl.innerHTML = "<p>Belum ada kampanye.</p>";
-          return;
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        body {
+            @apply text-[#1E1E1E] bg-[#F8F9FA];
         }
-        listEl.innerHTML = ""; // bersihkan loading
-        campaigns.forEach(c => {
-          const div = document.createElement("div");
-          div.className = "campaign";
-          div.innerHTML = `
-            <h3>${c.title}</h3>
-            <p>${c.description}</p>
-            <p><strong>Target: </strong>Rp ${c.targetAmount.toLocaleString()}</p>
-          `;
-          listEl.appendChild(div);
+    </style>
+</head>
+
+<body>
+    <div class="px-20">
+        <div class="h-screen flex flex-col">
+            <!-- HEADER -->
+            <div class="h-[139px] flex items-center justify-between">
+                <!-- LOGO -->
+                <h1 class="font-bold text-5xl text-[#1F7D53]">
+                    Logo
+                </h1>
+
+                <!-- NAVIGATION -->
+                <div class="flex justify-between items-center gap-x-[97px]">
+                    <div class="flex justify-between gap-x-[21px]">
+                        <a href="#" class="font-bold text-[#196442]">Beranda</a>
+                        <a href="#">Donasi</a>
+                        <a href="#">Tentang Kami</a>
+                    </div>
+
+                    <div class="flex justify-between gap-x-[21px] items-center">
+                        <a href="#">Masuk</a>
+                        <a href="#" class="bg-[#1F7D53] text-white rounded-xl px-5 py-3">Daftar</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HERO -->
+            <div class="flex-1 flex items-center relative">
+                <div class="space-y-14 w-1/2">
+                    <h1 class="font-bold text-5xl">Donasi Mudah & Aman dengan Blockchain</h1>
+                    <img src="/assets/vectors/hero-1.png" />
+                    <p>Aplikasi ini merupakan platform berbasis blockchain yang menghubungkan antara mereka yang ingin
+                        berbuat baik dengan mereka yang membutuhkan bantuan.</p>
+
+                    <div class="flex gap-x-10 items-center">
+                        <a href="#" class="font-bold bg-[#1F7D53] text-white rounded-xl px-5 py-3">Donasi Sekarang</a>
+
+                        <a href="#" class="flex items-center gap-x-3">
+                            <div class="size-10 flex items-center justify-center">
+                                <img src="/assets/icons/play.png" />
+                            </div>
+                            Lihat Cara Kerja Donasi
+                        </a>
+                    </div>
+                </div>
+
+                <!-- HERO IMAGE -->
+                <div class="absolute top-0 right-0 -z-10 flex items-center justify-end h-full">
+                    <img src="/assets/images/hero-1.png" class="h-3/4" />
+                </div>
+            </div>
+        </div>
+
+        <!-- PARTNER COMPANIES -->
+        <div class="py-14 flex flex-col items-center gap-y-10">
+            <h1 class="text-5xl font-bold">Telah bekerja sama dengan 10+ Lembaga Amal</h1>
+            <div class="grid grid-cols-6 gap-x-10">
+                <img src="/assets/images/partner-1.png" class="h-12 w-full object-contain" />
+                <img src="/assets/images/partner-1.png" class="h-12 w-full object-contain" />
+                <img src="/assets/images/partner-1.png" class="h-12 w-full object-contain" />
+                <img src="/assets/images/partner-1.png" class="h-12 w-full object-contain" />
+                <img src="/assets/images/partner-1.png" class="h-12 w-full object-contain" />
+                <img src="/assets/images/partner-1.png" class="h-12 w-full object-contain" />
+            </div>
+        </div>
+    </div>
+
+    <!-- WHY CHOOSE BLOCKCHAIN -->
+    <div class="bg-[#E9F2EE] px-20 py-14 grid grid-cols-2 gap-x-5">
+        <div class="space-y-5 self-center">
+            <h1 class="text-5xl font-bold">Mengapa kami memilih teknologi Blockchain?</h1>
+            <p class="text-[#8E98A8]">Sistem ini menggunakan token donasi sebagai representasi dari setiap rupiah yang
+                disumbangkan. Token ini akan tercatat dalam blockchain, sehingga setiap transaksi dapat dilacak dengan
+                mudah.</p>
+        </div>
+
+        <div class="space-y-5 flex flex-col">
+            <div class="flex gap-5">
+                <div class="size-14 bg-white rounded-xl flex items-center justify-center">
+                    <img src="/assets/vectors/transparansi.png" class="size-7 object-contain" />
+                </div>
+                <div class="space-y-3 w-full">
+                    <h3 class="text-2xl font-bold">Transparansi</h3>
+                    <p class="text-[#8E98A8]">Donatur dapat melihat secara jelas bagaimana donasinya digunakan. Setiap
+                        rupiah yang disumbangkan akan tercatat dengan jelas dan dapat diakses kapan saja.</p>
+                </div>
+            </div>
+            <div class="flex gap-5">
+                <div class="size-14 bg-white rounded-xl flex items-center justify-center">
+                    <img src="/assets/vectors/keamanan.png" class="size-7 object-contain" />
+                </div>
+                <div class="space-y-3 w-full">
+                    <h3 class="text-2xl font-bold">Keamanan</h3>
+                    <p class="text-[#8E98A8]">Data donasi tersimpan dengan aman dan terlindungi dari segala bentuk
+                        manipulasi.</p>
+                </div>
+            </div>
+            <div class="flex gap-5">
+                <div class="size-14 bg-white rounded-xl flex items-center justify-center">
+                    <img src="/assets/vectors/efisiensi.png" class="size-7 object-contain" />
+                </div>
+                <div class="space-y-3 w-full">
+                    <h3 class="text-2xl font-bold">Efisiensi</h3>
+                    <p class="text-[#8E98A8]">Proses pencatatan dan pelaporan menjadi lebih efisien, sehingga dana
+                        donasi dapat disalurkan lebih cepat.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="px-20">
+        <!-- OUR CONTRIBUTION -->
+        <div class="py-14 space-y-10">
+            <h1 class="font-bold text-center">Kontribusi Kami</h1>
+            <div class="flex justify-between">
+                <div class="text-center">
+                    <h4 class="font-bold text-xl">111,2 Juta</h4>
+                    <p class="text-[#8E98A8]">Total Donasi</p>
+                </div>
+
+                <div class="text-center">
+                    <h4 class="font-bold text-xl">450</h4>
+                    <p class="text-[#8E98A8]">Program Kampanye</p>
+                </div>
+
+                <div class="text-center">
+                    <h4 class="font-bold text-xl">15 Ribu</h4>
+                    <p class="text-[#8E98A8]">Donatur Aktif</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOW IT WORKS -->
+        <div class="py-14 space-y-10">
+            <h1 class="font-bold text-center">Cara Kerja Donasi</h1>
+            <img src="/assets/images/donation-flow.png" />
+        </div>
+
+        <!-- RECOMMENDED FAVORITE PROGRAM -->
+        <div class="py-14 space-y-10">
+            <h1 class="font-bold text-5xl text-center">Rekomendasi Program Favorit </h1>
+
+            <div class="grid grid-cols-3 gap-10" id="favorite-campaigns">
+              <!-- Campaign cards akan dimasukkan lewat JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="bg-[#0B2C1D] px-20 py-14 space-y-16 text-white">
+        <div class="flex justify-between">
+            <div class="space-y-5">
+                <h1 class="font-bold text-5xl text-[#1F7D53]">
+                    Logo
+                </h1>
+                <p>Subscribe untuk mendapatkan info terbaru kami</p>
+                <div class="rounded-full border border-white p-3 flex justify-between">
+                    <input type="text" placeholder="Masukkan Email" class="flex-1">
+                    <div class="size-7 flex items-center justify-center rounded-full bg-[#1F7D53]">
+                        <img src="/assets/icons/arrow-right.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="gap-y-3 flex flex-col">
+                <p>Dukungan</p>
+                <a href="#" class="text-[#8E98A8]">FAQ & Privacy Policy</a>
+                <a href="#" class="text-[#8E98A8]">Tentang</a>
+                <a href="#" class="text-[#8E98A8]">Hubungi Kami</a>
+                <a href="#" class="text-[#8E98A8]">Partner Kami</a>
+            </div>
+        </div>
+        <p class="text-center">© 2025 Blockchain Donation Inc. Copyright and rights reserved</p>
+    </div>
+
+    <script>
+      async function loadTopCampaigns() {
+        const container = document.getElementById("favorite-campaigns");
+        try {
+          const res = await fetch("/api/campaigns/top");
+          const campaigns = await res.json();
+
+          container.innerHTML = ""; // Kosongkan dulu
+          if (campaigns.length === 0) {
+            container.innerHTML = "<p class='col-span-3 text-center text-gray-500'>Belum ada kampanye.</p>";
+            return;
+          }
+
+          campaigns.forEach(c => {
+            const div = document.createElement("div");
+            div.className = "rounded-xl bg-white flex flex-col";
+            div.innerHTML = `
+              <img src="/assets/images/donation-banner.png" class="rounded-t-xl" />
+              <div class="p-4 space-y-3">
+                  <h3 class="font-bold text-xl">${c.title}</h3>
+                  <div class="flex gap-x-2 items-center">
+                      <p class="text-[#8E98A8]">${c.organization ?? 'Lembaga Donasi'}</p>
+                      <img src="/assets/vectors/verified.png" class="size-3">
+                  </div>
+                  <div class="flex gap-x-2">
+                      <p class="font-bold text-xl text-[#1F7D53]">Rp. ${Number(c.collectedAmount).toLocaleString()}</p>
+                      <p class="text-[#8E98A8]">Terkumpul</p>
+                  </div>
+                  <a href="#" class="donate-btn block w-min whitespace-nowrap bg-[#1F7D53] text-white rounded-xl px-5 py-3">Donasi</a>
+              </div>
+            `;
+            container.appendChild(div);
+          });
+
+          // Jika kurang dari 3 kampanye, tambahkan elemen kosong agar grid tetap rapi
+          const sisa = 3 - campaigns.length;
+          for (let i = 0; i < sisa; i++) {
+            const empty = document.createElement("div");
+            empty.className = "rounded-xl bg-transparent";
+            container.appendChild(empty);
+          }
+
+        } catch (err) {
+          container.innerHTML = "<p class='col-span-3 text-center text-red-500'>Gagal memuat kampanye.</p>";
+        }
+
+        const btn = div.querySelector(".donate-btn");
+        btn.addEventListener("click", () => {
+          window.location.href = `/detail.html?id=${campaign.id}`;
         });
-      } catch (err) {
-        listEl.innerHTML = "<p>Gagal memuat kampanye.</p>";
       }
-    }
-    loadCampaigns();
-  </script>
+
+      loadTopCampaigns();
+    </script>
+
 </body>
+
 </html>

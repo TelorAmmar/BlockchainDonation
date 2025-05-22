@@ -12,6 +12,20 @@ exports.getAllCampaigns = async (req, res) => {
   }
 };
 
+exports.getTopCampaigns = async (req, res) => {
+  try {
+    const campaigns = await prisma.campaign.findMany({
+      take: 3,
+      orderBy: {
+        createdAt: 'desc'
+      }
+    });
+    res.json(campaigns);
+  } catch (err) {
+    res.status(500).json({ error: 'Gagal mengambil kampanye' });
+  }
+};
+
 exports.createCampaign = async (req, res) => {
   try {
     const campaign = await prisma.campaign.create({
