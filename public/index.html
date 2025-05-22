@@ -214,7 +214,7 @@
                       <p class="font-bold text-xl text-[#1F7D53]">Rp. ${Number(c.collectedAmount).toLocaleString()}</p>
                       <p class="text-[#8E98A8]">Terkumpul</p>
                   </div>
-                  <a href="#" class="donate-btn block w-min whitespace-nowrap bg-[#1F7D53] text-white rounded-xl px-5 py-3">Donasi</a>
+                  <a href="/donation-detail.html?id=${c.id}" class="block w-min whitespace-nowrap bg-[#1F7D53] text-white rounded-xl px-5 py-3">Donasi</a>
               </div>
             `;
             container.appendChild(div);
@@ -231,11 +231,6 @@
         } catch (err) {
           container.innerHTML = "<p class='col-span-3 text-center text-red-500'>Gagal memuat kampanye.</p>";
         }
-
-        const btn = div.querySelector(".donate-btn");
-        btn.addEventListener("click", () => {
-          window.location.href = `/detail.html?id=${campaign.id}`;
-        });
       }
 
       loadTopCampaigns();

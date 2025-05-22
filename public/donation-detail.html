@@ -42,17 +42,18 @@
             <div class="col-span-8 bg-white rounded-xl p-8 space-y-5">
                 <img src="./assets/images/donation-bg.png">
 
-                <h3 class="text-2xl font-bold">Kirim bantuan untuk warga Palestina</h3>
+                <h3 class="text-2xl font-bold" id="campaign-title">Loading...</h3>
 
                 <div class="flex gap-x-5 items-center">
-                    <h3 class="text-xl font-bold text-[#1F7D53]">Rp. 25.000.000</h3>
+                    <h3 class="text-xl font-bold text-[#1F7D53]" id="collected-amount">Rp. -</h3>
                     <p class="text-[#8E98A8]">Terkumpul dari</p>
-                    <h3 class="text-xl font-bold">Rp. 650.000.000</h3>
+                    <h3 class="text-xl font-bold" id="target-amount">Rp. -</h3>
                 </div>
 
                 <div class="relative w-full rounded-full h-3 bg-[#E9F2EE]">
-                    <div class="absolute rounded-full inset-0 h-3 bg-[#1F7D53] w-[30%]"></div>
+                    <div id="progress-bar" class="absolute rounded-full inset-0 h-3 bg-[#1F7D53]" style="width: 0%"></div>
                 </div>
+
 
                 <div class="flex gap-x-5 items-center">
                     <img src="./assets/images/partner-1.png" class="h-12 object-contain">
@@ -62,11 +63,7 @@
                     </div>
                 </div>
 
-                <p class="text-[#8E98A8] whitespace-pre-line">Setelah serangan demi serangan dilancarkan Zionis Israel di Jalur Gaza, Palestina. Salah satu yang paling berdampak dari serangan ini adalah membludaknya rumah sakit, sementara itu listrik padam, pasokan air terputus.
-
-Konflik antara pejuang Palestina, Hamas dan Israel yang memanas sejak kaum Zionis Israel mencaplok tanah, kebebasan dan negara Palestina sejak 50 tahun silam. Penjajahan, perampasan, kekerasan bagi warga Palestina terus terjadi, bahkan warga Palestina dilarang dan diserang saat beribadah di Masjid Al Aqsa, kiblat pertama kaum muslimin.
-
-Kini gencatan senjata terjadi dan bantuan dari luar semakin terbuka masuk ke Gaza. Sahabat, atas nama kemanusiaan, mari kita sisihkan sebagian rezeki kita untuk membantu bangkitnya saudara-saudara muslim kita di Palestina. Setiap donasi dan sedekah yang kita berikan akan menjadi obat, bantuan pangan, air bersih, selimut bagi warga Palestina yang membutuhkan.</p>
+                <p class="text-[#8E98A8] whitespace-pre-line" id="campaign-description">Loading...</p>
             </div>
 
             <div class="col-span-4 bg-white rounded-xl p-8 space-y-5 h-min">
@@ -123,6 +120,28 @@ Kini gencatan senjata terjadi dan bantuan dari luar semakin terbuka masuk ke Gaz
         </div>
         <p class="text-center">© 2025 Blockchain Donation Inc. Copyright and rights reserved</p>
     </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        fetch(`/api/campaigns/${id}`)
+            .then(res => res.json())
+            .then(data => {
+            document.getElementById("campaign-title").textContent = data.title;
+            document.getElementById("collected-amount").textContent = `Rp. ${data.collectedAmount.toLocaleString()}`;
+            document.getElementById("target-amount").textContent = `Rp. ${data.targetAmount.toLocaleString()}`;
+            document.getElementById("campaign-description").textContent = data.description;
+
+            const progress = Math.min(100, (data.collectedAmount / data.targetAmount) * 100);
+            document.getElementById("progress-bar").style.width = `${progress}%`;
+            })
+            .catch(err => {
+            alert("Gagal memuat data kampanye");
+            console.error(err);
+            });
+    </script>
+
 </body>
 
 </html>
