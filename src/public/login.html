@@ -47,6 +47,7 @@
             });
 
             const data = await res.json();
+            console.log("Login response:", data);
             if (res.ok) {
                 // Simpan token ke localStorage
                 localStorage.setItem("token", data.token);

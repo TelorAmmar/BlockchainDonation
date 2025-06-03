@@ -28,9 +28,9 @@
                 <a href="#">Tentang Kami</a>
             </div>
 
-            <div class="flex justify-between gap-x-[21px] items-center">
-                <a href="login">Masuk</a>
-                <a href="#" class="bg-[#1F7D53] text-white rounded-xl px-5 py-3">Daftar</a>
+            <div id="auth-buttons" class="flex justify-between gap-x-[21px] items-center">
+                <a href="login" id="login-button">Masuk</a>
+                <a href="register" id="register-button" class="bg-[#1F7D53] text-white rounded-xl px-5 py-3">Daftar</a>
             </div>
         </div>
     </div>
@@ -126,25 +126,42 @@
         const id = params.get('id');
 
         fetch(`/api/campaigns/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                document.getElementById("campaign-title").textContent = data.title;
-                document.getElementById("collected-amount").textContent = `Rp. ${data.collectedAmount.toLocaleString()}`;
-                document.getElementById("target-amount").textContent = `Rp. ${data.targetAmount.toLocaleString()}`;
-                document.getElementById("campaign-description").textContent = data.description;
-                document.getElementById("campaign-user-name").textContent = data.user.name;
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById("campaign-title").textContent = data.title;
+            document.getElementById("collected-amount").textContent = `Rp. ${data.collectedAmount.toLocaleString()}`;
+            document.getElementById("target-amount").textContent = `Rp. ${data.targetAmount.toLocaleString()}`;
+            document.getElementById("campaign-description").textContent = data.description;
+            document.getElementById("campaign-user-name").textContent = data.user.name;
 
-                if (data.imageUrl) {
-                    document.getElementById("campaign-image").src = data.imageUrl;
-                }
+            if (data.imageUrl) {
+                document.getElementById("campaign-image").src = data.imageUrl;
+            }
 
-                const progress = Math.min(100, (data.collectedAmount / data.targetAmount) * 100);
-                document.getElementById("progress-bar").style.width = `${progress}%`;
-            })
-            .catch(err => {
-                alert("Gagal memuat data kampanye");
-                console.error(err);
-            });
+            const progress = Math.min(100, (data.collectedAmount / data.targetAmount) * 100);
+            document.getElementById("progress-bar").style.width = `${progress}%`;
+        })
+        .catch(err => {
+            alert("Gagal memuat data kampanye");
+            console.error(err);
+        });
+
+        const token = localStorage.getItem("token");
+
+            const loginBtn = document.getElementById("login-button");
+            const registerBtn = document.getElementById("register-button");
+            const authContainer = document.getElementById("auth-buttons");
+
+            if (token) {
+                authContainer.innerHTML = `
+                    <button id="logout-button" class="bg-red-600 text-white px-4 py-2 rounded-xl">Logout</button>
+                `;
+
+                document.getElementById("logout-button").addEventListener("click", () => {
+                localStorage.removeItem("token");
+                window.location.reload();
+                });
+            }
     </script>
 
 </body>

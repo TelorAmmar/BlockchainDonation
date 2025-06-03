@@ -30,9 +30,9 @@
                         <a href="#">Tentang Kami</a>
                     </div>
 
-                    <div class="flex justify-between gap-x-[21px] items-center">
-                        <a href="login">Masuk</a>
-                        <a href="#" class="bg-[#1F7D53] text-white rounded-xl px-5 py-3">Daftar</a>
+                    <div id="auth-buttons" class="flex justify-between gap-x-[21px] items-center">
+                        <a href="login" id="login-button">Masuk</a>
+                        <a href="register" id="register-button" class="bg-[#1F7D53] text-white rounded-xl px-5 py-3">Daftar</a>
                     </div>
                 </div>
             </div>
@@ -187,53 +187,70 @@
     </div>
 
     <script>
-      async function loadTopCampaigns() {
-        const container = document.getElementById("favorite-campaigns");
-        try {
-          const res = await fetch("/api/campaigns/top");
-          const campaigns = await res.json();
+        async function loadTopCampaigns() {
+            const container = document.getElementById("favorite-campaigns");
+            try {
+            const res = await fetch("/api/campaigns/top");
+            const campaigns = await res.json();
 
-          container.innerHTML = ""; // Kosongkan dulu
-          if (campaigns.length === 0) {
-            container.innerHTML = "<p class='col-span-3 text-center text-gray-500'>Belum ada kampanye.</p>";
-            return;
-          }
+            container.innerHTML = ""; // Kosongkan dulu
+            if (campaigns.length === 0) {
+                container.innerHTML = "<p class='col-span-3 text-center text-gray-500'>Belum ada kampanye.</p>";
+                return;
+            }
 
-          campaigns.forEach(c => {
-            const div = document.createElement("div");
-            div.className = "rounded-xl bg-white flex flex-col";
-            div.innerHTML = `
-              <img src="/assets/images/donation-banner.png" class="rounded-t-xl" />
-              <div class="p-4 space-y-3">
-                  <h3 class="font-bold text-xl">${c.title}</h3>
-                  <div class="flex gap-x-2 items-center">
-                      <p class="text-[#8E98A8]">${c.organization ?? 'Lembaga Donasi'}</p>
-                      <img src="/assets/vectors/verified.png" class="size-3">
-                  </div>
-                  <div class="flex gap-x-2">
-                      <p class="font-bold text-xl text-[#1F7D53]">Rp. ${Number(c.collectedAmount).toLocaleString()}</p>
-                      <p class="text-[#8E98A8]">Terkumpul</p>
-                  </div>
-                  <a href="/donation-detail.html?id=${c.id}" class="block w-min whitespace-nowrap bg-[#1F7D53] text-white rounded-xl px-5 py-3">Donasi</a>
-              </div>
-            `;
-            container.appendChild(div);
-          });
+            campaigns.forEach(c => {
+                const div = document.createElement("div");
+                div.className = "rounded-xl bg-white flex flex-col";
+                div.innerHTML = `
+                <img src="/assets/images/donation-banner.png" class="rounded-t-xl" />
+                <div class="p-4 space-y-3">
+                    <h3 class="font-bold text-xl">${c.title}</h3>
+                    <div class="flex gap-x-2 items-center">
+                        <p class="text-[#8E98A8]">${c.organization ?? 'Lembaga Donasi'}</p>
+                        <img src="/assets/vectors/verified.png" class="size-3">
+                    </div>
+                    <div class="flex gap-x-2">
+                        <p class="font-bold text-xl text-[#1F7D53]">Rp. ${Number(c.collectedAmount).toLocaleString()}</p>
+                        <p class="text-[#8E98A8]">Terkumpul</p>
+                    </div>
+                    <a href="/donation-detail.html?id=${c.id}" class="block w-min whitespace-nowrap bg-[#1F7D53] text-white rounded-xl px-5 py-3">Donasi</a>
+                </div>
+                `;
+                container.appendChild(div);
+            });
 
-          // Jika kurang dari 3 kampanye, tambahkan elemen kosong agar grid tetap rapi
-          const sisa = 3 - campaigns.length;
-          for (let i = 0; i < sisa; i++) {
-            const empty = document.createElement("div");
-            empty.className = "rounded-xl bg-transparent";
-            container.appendChild(empty);
-          }
+            // Jika kurang dari 3 kampanye, tambahkan elemen kosong agar grid tetap rapi
+            const sisa = 3 - campaigns.length;
+            for (let i = 0; i < sisa; i++) {
+                const empty = document.createElement("div");
+                empty.className = "rounded-xl bg-transparent";
+                container.appendChild(empty);
+            }
 
-        } catch (err) {
-          container.innerHTML = "<p class='col-span-3 text-center text-red-500'>Gagal memuat kampanye.</p>";
+            } catch (err) {
+            container.innerHTML = "<p class='col-span-3 text-center text-red-500'>Gagal memuat kampanye.</p>";
+            }
         }
-      }
 
-      loadTopCampaigns();
+        const token = localStorage.getItem("token");
+
+        const loginBtn = document.getElementById("login-button");
+        const registerBtn = document.getElementById("register-button");
+        const authContainer = document.getElementById("auth-buttons");
+
+        if (token) {
+            authContainer.innerHTML = `
+                <button id="logout-button" class="bg-red-600 text-white px-4 py-2 rounded-xl">Logout</button>
+            `;
+
+            document.getElementById("logout-button").addEventListener("click", () => {
+            localStorage.removeItem("token");
+            window.location.reload();
+            });
+        }
+
+        loadTopCampaigns();
     </script>
 
 </body>
