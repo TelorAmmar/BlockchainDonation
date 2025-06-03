@@ -12,6 +12,9 @@ app.get("/", (req, res) => {
 app.get('/login', (req, res) => {
   res.sendFile(path.join(__dirname, '/public/login.html'));
 });
+app.get('/register', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/register.html'));
+});
 
 // Route auth
 const authRoutes = require("./routes/auth.routes");

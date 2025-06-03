@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        body {
+            @apply text-[#1E1E1E] bg-[#F8F9FA];
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex items-center justify-center w-screen h-screen">
+        <div class="bg-white rounded-xl p-5 w-1/3 space-y-5">
+            <h1 class="font-bold text-2xl">Selamat Datang</h1>
+            <div class="space-y-2">
+                <p>Nama Lengkap <span class="text-red-700">*</span></p>
+                <input id="name" type="text" class="w-full rounded-xl border border-[#8E98A880] py-2 px-3"
+                    placeholder="Nama Lengkap">
+            </div>
+            <div class="space-y-2">
+                <p>No. Whatsapp <span class="text-red-700">*</span></p>
+                <input id="whatsapp" type="text" class="w-full rounded-xl border border-[#8E98A880] py-2 px-3"
+                    placeholder="0812345678910">
+            </div>
+            <div class="space-y-2">
+                <p>Email <span class="text-red-700">*</span></p>
+                <input id="email" type="text" class="w-full rounded-xl border border-[#8E98A880] py-2 px-3"
+                    placeholder="example@gmail.com">
+            </div>
+            <div class="space-y-2">
+                <p>Password <span class="text-red-700">*</span></p>
+                <input id="password" type="password" class="w-full rounded-xl border border-[#8E98A880] py-2 px-3"
+                    placeholder="Password">
+            </div>
+            <div class="space-y-2">
+                <p>Konfirmasi Password <span class="text-red-700">*</span></p>
+                <input id="confirmPassword" type="password" class="w-full rounded-xl border border-[#8E98A880] py-2 px-3"
+                    placeholder="Konfirmasi Password">
+            </div>
+
+            <a href="./forgot-password.html" class="block">Lupa Password?</a>
+
+            <button id="register-btn" class="text-center rounded-xl text-white py-2 bg-[#1F7D53] w-full">Daftar</button>
+
+            <p class="text-center">Sudah punya akun? <a href="login" class="text-[#1F7D53]">Masuk</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("register-btn").addEventListener("click", async () => {
+            const name = document.getElementById("name").value;
+            const whatsapp = document.getElementById("whatsapp").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+            alert("Password dan konfirmasi tidak cocok!");
+            return;
+            }
+
+            try {
+            const res = await fetch("/api/auth/register", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ name, whatsapp, email, password })
+            });
+
+            const data = await res.json();
+            if (res.ok) {
+                localStorage.setItem("token", data.token); // Simpan token
+                alert("Registrasi berhasil!");
+                window.location.href = "/"; // Redirect ke halaman utama
+            } else {
+                alert(data.message || "Registrasi gagal");
+            }
+            } catch (err) {
+            console.error(err);
+            alert("Terjadi kesalahan saat mendaftar");
+            }
+        });
+    </script>
+</body>
+
+</html>

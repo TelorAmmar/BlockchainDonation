@@ -12,6 +12,7 @@ model User {
   email    String   @unique
   password String
   name     String
+  whatsapp  String?
   donations Donation[]
   campaigns Campaign[]
 }

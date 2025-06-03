@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 exports.register = async (req, res) => {
   try {
-    const { email, password, name } = req.body;
+    const { email, password, name, whatsapp } = req.body;
 
     const existing = await prisma.user.findUnique({ where: { email } });
     if (existing) return res.status(400).json({ message: "Email sudah terdaftar" });
@@ -13,7 +13,7 @@ exports.register = async (req, res) => {
     const hashed = await bcrypt.hash(password, 10);
 
     const user = await prisma.user.create({
-      data: { email, name, password: hashed }
+      data: { email, name, password: hashed, whatsapp }
     });
 
     const token = generateToken(user);
