@@ -1,12 +1,38 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
+// exports.getAllCampaigns = async (req, res) => {
+//   try {
+//     const campaigns = await prisma.campaign.findMany({
+//       orderBy: { createdAt: "desc" }, // terbaru dulu
+//     });
+//     res.json(campaigns);
+//   } catch (error) {
+//     res.status(500).json({ error: "Failed to fetch campaigns" });
+//   }
+// };
+
 exports.getAllCampaigns = async (req, res) => {
   try {
-    const campaigns = await prisma.campaign.findMany({
-      orderBy: { createdAt: "desc" }, // terbaru dulu
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 9;
+    const skip = (page - 1) * limit;
+
+    const [campaigns, total] = await Promise.all([
+      prisma.campaign.findMany({
+        skip,
+        take: limit,
+        orderBy: { createdAt: 'desc' },
+      }),
+      prisma.campaign.count(),
+    ]);
+
+    res.json({
+      campaigns,
+      total,
+      page,
+      totalPages: Math.ceil(total / limit),
     });
-    res.json(campaigns);
   } catch (error) {
     res.status(500).json({ error: "Failed to fetch campaigns" });
   }
@@ -32,6 +58,11 @@ exports.getCampaignDetail = async (req, res) => {
   try {
     const campaign = await prisma.campaign.findUnique({
       where: { id },
+      include: {
+        user: {
+          select: { name: true }  // hanya ambil nama user
+        }
+      }
     });
 
     if (!campaign) return res.status(404).json({ error: "Campaign not found" });
@@ -45,12 +76,14 @@ exports.getCampaignDetail = async (req, res) => {
 
 exports.createCampaign = async (req, res) => {
   try {
+    const imagePath = req.file ? `/uploads/${req.file.filename}` : null;
     const campaign = await prisma.campaign.create({
       data: {
         title: req.body.title,
         description: req.body.description,
         targetAmount: parseFloat(req.body.targetAmount),
         userId: req.user.id,
+        imageUrl: imagePath,
       },
     });
     res.status(201).json(campaign);

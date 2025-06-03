@@ -40,7 +40,7 @@
         
         <div class="grid grid-cols-12 gap-10">
             <div class="col-span-8 bg-white rounded-xl p-8 space-y-5">
-                <img src="./assets/images/donation-bg.png">
+                <img id="campaign-image" src="./assets/images/donation-bg.png" alt="Campaign Image">
 
                 <h3 class="text-2xl font-bold" id="campaign-title">Loading...</h3>
 
@@ -58,7 +58,7 @@
                 <div class="flex gap-x-5 items-center">
                     <img src="./assets/images/partner-1.png" class="h-12 object-contain">
                     <div class="flex gap-x-2 items-center">
-                        <p class="text-xl">Dompet Dhuafa</p>
+                        <p id="campaign-user-name" class="text-xl font-semibold"></p>
                         <img src="./assets/vectors/verified.png" class="size-5 object-contain">
                     </div>
                 </div>
@@ -128,17 +128,22 @@
         fetch(`/api/campaigns/${id}`)
             .then(res => res.json())
             .then(data => {
-            document.getElementById("campaign-title").textContent = data.title;
-            document.getElementById("collected-amount").textContent = `Rp. ${data.collectedAmount.toLocaleString()}`;
-            document.getElementById("target-amount").textContent = `Rp. ${data.targetAmount.toLocaleString()}`;
-            document.getElementById("campaign-description").textContent = data.description;
+                document.getElementById("campaign-title").textContent = data.title;
+                document.getElementById("collected-amount").textContent = `Rp. ${data.collectedAmount.toLocaleString()}`;
+                document.getElementById("target-amount").textContent = `Rp. ${data.targetAmount.toLocaleString()}`;
+                document.getElementById("campaign-description").textContent = data.description;
+                document.getElementById("campaign-user-name").textContent = data.user.name;
 
-            const progress = Math.min(100, (data.collectedAmount / data.targetAmount) * 100);
-            document.getElementById("progress-bar").style.width = `${progress}%`;
+                if (data.imageUrl) {
+                    document.getElementById("campaign-image").src = data.imageUrl;
+                }
+
+                const progress = Math.min(100, (data.collectedAmount / data.targetAmount) * 100);
+                document.getElementById("progress-bar").style.width = `${progress}%`;
             })
             .catch(err => {
-            alert("Gagal memuat data kampanye");
-            console.error(err);
+                alert("Gagal memuat data kampanye");
+                console.error(err);
             });
     </script>
 

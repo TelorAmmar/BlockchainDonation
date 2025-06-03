@@ -5,9 +5,9 @@ const path = require("path");
 app.use(express.json());
 
 // Static landing page
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "/public")));
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
+  res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 // Route auth
@@ -17,5 +17,6 @@ app.use("/api/auth", authRoutes);
 // Route lainnya (campaign, dsb)
 const campaignRoutes = require("./routes/campaign.routes");
 app.use("/api/campaigns", campaignRoutes);
+app.use('/uploads', express.static(path.join(__dirname, '/public/uploads')));
 
 module.exports = app;
