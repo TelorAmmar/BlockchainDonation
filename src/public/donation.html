@@ -211,7 +211,10 @@
 
             if (token) {
                 authContainer.innerHTML = `
-                    <button id="logout-button" class="bg-red-600 text-white px-4 py-2 rounded-xl">Logout</button>
+                    <div id="auth-buttons" class="flex justify-between gap-x-[21px] items-center">
+                        <button id="logout-button" class="bg-red-600 text-white px-4 py-2 rounded-xl">Keluar</button>
+                        <a href="dashboard" id="dashboard-button" class="bg-[#1F7D53] text-white rounded-xl px-5 py-3">Dashboard</a>
+                    </div>
                 `;
 
                 document.getElementById("logout-button").addEventListener("click", () => {

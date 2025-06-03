@@ -20,9 +20,13 @@ app.get('/register', (req, res) => {
 const authRoutes = require("./routes/auth.routes");
 app.use("/api/auth", authRoutes);
 
-// Route lainnya (campaign, dsb)
+// Route campaign
 const campaignRoutes = require("./routes/campaign.routes");
 app.use("/api/campaigns", campaignRoutes);
 app.use('/uploads', express.static(path.join(__dirname, '/public/uploads')));
+
+// Route dashboard
+const dashboardRoutes = require('./routes/dashboard.routes');
+app.use("/api/dashboard", dashboardRoutes);
 
 module.exports = app;
