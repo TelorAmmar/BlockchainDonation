@@ -28,5 +28,8 @@ app.use('/uploads', express.static(path.join(__dirname, '/public/uploads')));
 // Route dashboard
 const dashboardRoutes = require('./routes/dashboard.routes');
 app.use("/api/dashboard", dashboardRoutes);
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/dashboard.html'));
+});
 
 module.exports = app;

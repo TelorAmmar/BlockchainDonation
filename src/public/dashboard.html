@@ -21,7 +21,7 @@
             </h1>
             <hr class="text-gray-200">
             <div class="space-y-5">
-                <a href="./dashboard.html" class="bg-white rounded-xl p-4 flex gap-x-3 items-center w-full">
+                <a href="#" id="btn-dashboard" class="bg-white rounded-xl p-4 flex gap-x-3 items-center w-full">
                     <div class="rounded-xl size-10 flex items-center justify-center bg-[#1F7D53]">
                         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -34,7 +34,7 @@
                     </div>
                     <p class="text-xl font-bold">Dashboard</p>
                 </a>
-                <a href="./dashboard2.html" class="rounded-xl p-4 flex gap-x-3 items-center w-full">
+                <a href="#" id="btn-riwayat" class="rounded-xl p-4 flex gap-x-3 items-center w-full">
                     <div class="rounded-xl size-10 flex items-center justify-center bg-white">
                         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -47,7 +47,7 @@
                     </div>
                     <p class="text-xl font-bold text-[#8E98A8]">Riwayat Donasi</p>
                 </a>
-                <a href="./login.html" class="rounded-xl p-4 flex gap-x-3 items-center w-full">
+                <a href="#" id="btn-logout" class="rounded-xl p-4 flex gap-x-3 items-center w-full">
                     <div class="rounded-xl size-10 flex items-center justify-center bg-white">
                         <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -62,151 +62,491 @@
 
 
         <div class="col-span-9 p-10 gap-y-6 flex flex-col">
-            <h1 class="font-bold">Dashboard</h1>
+            <div id="dashboard-section" class="space-y-8">
+                <!-- Konten Dashboard & Donasi Terbaru dari dashboard.html -->
+                 <h1 class="font-bold">Dashboard</h1>
 
-            <div class="grid grid-cols-2 gap-x-5">
-                <div class="flex gap-x-3 items-center bg-white rounded-xl p-3">
-                    <div class="bg-[#1F7D53] size-12 p-2 rounded-xl flex items-center justify-center">
-                        <svg width="44" height="40" viewBox="0 0 44 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M23.6436 2.4659C25.8258 0.894708 28.3571 0.109111 31.2159 0.109111C32.787 0.109111 34.511 0.523732 36.3877 1.39662C38.2644 2.24768 39.7483 3.2515 40.8394 4.40807C43.0871 7.20131 44.0255 10.4528 43.6981 14.1626C43.349 17.8723 42.1269 20.7747 40.0102 22.826L23.4472 39.389C23.0325 39.8036 22.5088 40 21.8978 40C21.2868 40 20.7849 39.8036 20.3702 39.389C20.1685 39.1903 20.01 38.952 19.9049 38.6891C19.7997 38.4263 19.7501 38.1444 19.7592 37.8614C19.7592 37.2504 19.9556 36.7267 20.3702 36.3121L30.3866 26.2957C30.9322 25.8156 30.9322 25.3137 30.3866 24.7681C29.8411 24.2226 29.3391 24.2226 28.8591 24.7681L18.8427 34.7845C18.6407 34.9879 18.3987 35.1473 18.1321 35.2525C17.8654 35.3576 17.5798 35.4063 17.2933 35.3955C16.6823 35.3955 16.1804 35.1991 15.7658 34.7845C15.564 34.5858 15.4056 34.3476 15.3004 34.0847C15.1953 33.8218 15.1457 33.54 15.1548 33.257C15.1548 32.6459 15.3512 32.1222 15.7658 31.7076L25.7821 21.6912C26.3713 21.1457 26.3713 20.6001 25.7821 20.0546C25.2802 19.509 24.8001 19.509 24.2546 20.0546L14.2382 30.18C14.034 30.3803 13.7916 30.5376 13.5255 30.6426C13.2593 30.7475 12.9748 30.798 12.6888 30.7911C12.0778 30.7911 11.5541 30.5947 11.0958 30.18C10.6594 29.7654 10.4412 29.2635 10.4412 28.6525C10.4412 28.0415 10.6812 27.4959 11.1613 27.0158L21.1995 16.9776C21.745 16.4321 21.745 15.9302 21.1995 15.4501C20.6539 14.97 20.1302 14.97 19.6501 15.4501L9.52464 25.5101C9.04455 25.9465 8.54264 26.1866 7.99709 26.1866C7.38607 26.1866 6.86234 25.9684 6.46954 25.5101C6.05492 25.0737 5.8367 24.5499 5.8367 23.9389C5.8367 23.3279 6.05492 22.826 6.46954 22.4113C13.1471 15.6901 17.2715 11.6312 18.8427 10.1255L26.6114 17.8069C27.4624 18.6143 28.4444 19.0289 29.6447 19.0289C31.1722 19.0289 32.3724 18.4179 33.2671 17.1959C33.8782 16.3011 34.0964 15.3191 33.9218 14.228C33.7472 13.1369 33.289 12.2204 32.547 11.4566L23.6436 2.4659ZM28.1389 16.2793L18.8427 6.96127L3.39261 22.4113C1.55955 20.5565 0.512091 17.7196 0.272047 13.8571C0.0320038 10.0164 1.07947 6.67758 3.39261 3.88434C5.98945 1.30933 9.08819 0 12.6888 0C16.3113 0 19.3882 1.30933 21.8978 3.88434L31.2159 13.2024C31.6305 13.617 31.8269 14.1189 31.8269 14.73C31.8269 15.341 31.6305 15.8647 31.2159 16.2793C30.8012 16.6721 30.2993 16.8903 29.6447 16.8903C29.0555 16.8903 28.5536 16.6721 28.1389 16.2793Z"
-                                fill="white" />
-                        </svg>
+                <div class="grid grid-cols-2 gap-x-5">
+                    <div class="flex gap-x-3 items-center bg-white rounded-xl p-3">
+                        <div class="bg-[#1F7D53] size-12 p-2 rounded-xl flex items-center justify-center">
+                            <svg width="44" height="40" viewBox="0 0 44 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M23.6436 2.4659C25.8258 0.894708 28.3571 0.109111 31.2159 0.109111C32.787 0.109111 34.511 0.523732 36.3877 1.39662C38.2644 2.24768 39.7483 3.2515 40.8394 4.40807C43.0871 7.20131 44.0255 10.4528 43.6981 14.1626C43.349 17.8723 42.1269 20.7747 40.0102 22.826L23.4472 39.389C23.0325 39.8036 22.5088 40 21.8978 40C21.2868 40 20.7849 39.8036 20.3702 39.389C20.1685 39.1903 20.01 38.952 19.9049 38.6891C19.7997 38.4263 19.7501 38.1444 19.7592 37.8614C19.7592 37.2504 19.9556 36.7267 20.3702 36.3121L30.3866 26.2957C30.9322 25.8156 30.9322 25.3137 30.3866 24.7681C29.8411 24.2226 29.3391 24.2226 28.8591 24.7681L18.8427 34.7845C18.6407 34.9879 18.3987 35.1473 18.1321 35.2525C17.8654 35.3576 17.5798 35.4063 17.2933 35.3955C16.6823 35.3955 16.1804 35.1991 15.7658 34.7845C15.564 34.5858 15.4056 34.3476 15.3004 34.0847C15.1953 33.8218 15.1457 33.54 15.1548 33.257C15.1548 32.6459 15.3512 32.1222 15.7658 31.7076L25.7821 21.6912C26.3713 21.1457 26.3713 20.6001 25.7821 20.0546C25.2802 19.509 24.8001 19.509 24.2546 20.0546L14.2382 30.18C14.034 30.3803 13.7916 30.5376 13.5255 30.6426C13.2593 30.7475 12.9748 30.798 12.6888 30.7911C12.0778 30.7911 11.5541 30.5947 11.0958 30.18C10.6594 29.7654 10.4412 29.2635 10.4412 28.6525C10.4412 28.0415 10.6812 27.4959 11.1613 27.0158L21.1995 16.9776C21.745 16.4321 21.745 15.9302 21.1995 15.4501C20.6539 14.97 20.1302 14.97 19.6501 15.4501L9.52464 25.5101C9.04455 25.9465 8.54264 26.1866 7.99709 26.1866C7.38607 26.1866 6.86234 25.9684 6.46954 25.5101C6.05492 25.0737 5.8367 24.5499 5.8367 23.9389C5.8367 23.3279 6.05492 22.826 6.46954 22.4113C13.1471 15.6901 17.2715 11.6312 18.8427 10.1255L26.6114 17.8069C27.4624 18.6143 28.4444 19.0289 29.6447 19.0289C31.1722 19.0289 32.3724 18.4179 33.2671 17.1959C33.8782 16.3011 34.0964 15.3191 33.9218 14.228C33.7472 13.1369 33.289 12.2204 32.547 11.4566L23.6436 2.4659ZM28.1389 16.2793L18.8427 6.96127L3.39261 22.4113C1.55955 20.5565 0.512091 17.7196 0.272047 13.8571C0.0320038 10.0164 1.07947 6.67758 3.39261 3.88434C5.98945 1.30933 9.08819 0 12.6888 0C16.3113 0 19.3882 1.30933 21.8978 3.88434L31.2159 13.2024C31.6305 13.617 31.8269 14.1189 31.8269 14.73C31.8269 15.341 31.6305 15.8647 31.2159 16.2793C30.8012 16.6721 30.2993 16.8903 29.6447 16.8903C29.0555 16.8903 28.5536 16.6721 28.1389 16.2793Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-[#8E98A8]">Jumlah Donasi</p>
+                            <p class="font-bold text-xl" data-jumlah-donasi>0</p>
+                        </div>
                     </div>
-                    <div>
-                        <p class="text-[#8E98A8]">Jumlah Donasi</p>
-                        <p class="font-bold text-xl">100</p>
+
+                    <div class="flex gap-x-3 items-center bg-white rounded-xl p-3">
+                        <div class="bg-[#1F7D53] size-12 p-2 rounded-xl flex items-center justify-center">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M7.46079 8.12113H32.4608C32.7528 8.12099 33.0446 8.13952 33.3342 8.1766C33.236 7.48736 32.9993 6.82514 32.6383 6.22987C32.2772 5.6346 31.7994 5.11861 31.2335 4.71301C30.6677 4.3074 30.0256 4.02059 29.3459 3.86986C28.6662 3.71913 27.963 3.7076 27.2788 3.83597L6.7186 7.34613H6.69517C5.4046 7.59292 4.25693 8.3231 3.48657 9.38753C4.64719 8.56201 6.03652 8.11929 7.46079 8.12113Z"
+                                    fill="white" />
+                                <path
+                                    d="M32.4611 10H7.46106C6.13542 10.0014 4.86449 10.5287 3.92712 11.4661C2.98976 12.4034 2.46251 13.6744 2.46106 15V30C2.46251 31.3256 2.98976 32.5966 3.92712 33.5339C4.86449 34.4713 6.13542 34.9985 7.46106 35H32.4611C33.7867 34.9985 35.0576 34.4713 35.995 33.5339C36.9324 32.5966 37.4596 31.3256 37.461 30V15C37.4596 13.6744 36.9324 12.4034 35.995 11.4661C35.0576 10.5287 33.7867 10.0014 32.4611 10ZM28.7501 25C28.2557 25 27.7723 24.8534 27.3612 24.5787C26.9501 24.304 26.6296 23.9135 26.4404 23.4567C26.2512 22.9999 26.2017 22.4972 26.2982 22.0123C26.3946 21.5273 26.6327 21.0819 26.9823 20.7322C27.332 20.3826 27.7774 20.1445 28.2624 20.048C28.7473 19.9516 29.25 20.0011 29.7068 20.1903C30.1636 20.3795 30.5541 20.6999 30.8288 21.1111C31.1035 21.5222 31.2501 22.0055 31.2501 22.5C31.2501 23.163 30.9867 23.7989 30.5179 24.2678C30.049 24.7366 29.4132 25 28.7501 25Z"
+                                    fill="white" />
+                                <path
+                                    d="M2.5 20.269V12.4956C2.5 10.8026 3.4375 7.96435 6.69141 7.34951C9.45312 6.83154 12.1875 6.83154 12.1875 6.83154C12.1875 6.83154 13.9844 8.08154 12.5 8.08154C11.0156 8.08154 11.0547 9.9956 12.5 9.9956C13.9453 9.9956 12.5 11.8315 12.5 11.8315L6.67969 18.4331L2.5 20.269Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-[#8E98A8]">Jumlah Dana Didonasikan</p>
+                            <p class="font-bold text-xl" data-total-donasi>Rp 0</p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="flex gap-x-3 items-center bg-white rounded-xl p-3">
-                    <div class="bg-[#1F7D53] size-12 p-2 rounded-xl flex items-center justify-center">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M7.46079 8.12113H32.4608C32.7528 8.12099 33.0446 8.13952 33.3342 8.1766C33.236 7.48736 32.9993 6.82514 32.6383 6.22987C32.2772 5.6346 31.7994 5.11861 31.2335 4.71301C30.6677 4.3074 30.0256 4.02059 29.3459 3.86986C28.6662 3.71913 27.963 3.7076 27.2788 3.83597L6.7186 7.34613H6.69517C5.4046 7.59292 4.25693 8.3231 3.48657 9.38753C4.64719 8.56201 6.03652 8.11929 7.46079 8.12113Z"
-                                fill="white" />
-                            <path
-                                d="M32.4611 10H7.46106C6.13542 10.0014 4.86449 10.5287 3.92712 11.4661C2.98976 12.4034 2.46251 13.6744 2.46106 15V30C2.46251 31.3256 2.98976 32.5966 3.92712 33.5339C4.86449 34.4713 6.13542 34.9985 7.46106 35H32.4611C33.7867 34.9985 35.0576 34.4713 35.995 33.5339C36.9324 32.5966 37.4596 31.3256 37.461 30V15C37.4596 13.6744 36.9324 12.4034 35.995 11.4661C35.0576 10.5287 33.7867 10.0014 32.4611 10ZM28.7501 25C28.2557 25 27.7723 24.8534 27.3612 24.5787C26.9501 24.304 26.6296 23.9135 26.4404 23.4567C26.2512 22.9999 26.2017 22.4972 26.2982 22.0123C26.3946 21.5273 26.6327 21.0819 26.9823 20.7322C27.332 20.3826 27.7774 20.1445 28.2624 20.048C28.7473 19.9516 29.25 20.0011 29.7068 20.1903C30.1636 20.3795 30.5541 20.6999 30.8288 21.1111C31.1035 21.5222 31.2501 22.0055 31.2501 22.5C31.2501 23.163 30.9867 23.7989 30.5179 24.2678C30.049 24.7366 29.4132 25 28.7501 25Z"
-                                fill="white" />
-                            <path
-                                d="M2.5 20.269V12.4956C2.5 10.8026 3.4375 7.96435 6.69141 7.34951C9.45312 6.83154 12.1875 6.83154 12.1875 6.83154C12.1875 6.83154 13.9844 8.08154 12.5 8.08154C11.0156 8.08154 11.0547 9.9956 12.5 9.9956C13.9453 9.9956 12.5 11.8315 12.5 11.8315L6.67969 18.4331L2.5 20.269Z"
-                                fill="white" />
-                        </svg>
+                <div class="bg-white flex-1 rounded-xl p-5 space-y-5 flex flex-col">
+                    <div class="flex justify-between items-center">
+                        <p class="font-bold">Donasi Terbaru</p>
+                        <a href="#" class="text-[#1F7D53]">Lihat Semua</a>
                     </div>
-                    <div>
-                        <p class="text-[#8E98A8]">Jumlah Dana Didonasikan</p>
-                        <p class="font-bold text-xl">Rp 1000.000</p>
+                    <div class="overflow-y-auto grow h-0">
+                        <table class="w-full border-collapse">
+                            <thead class="text-sm text-[#8E98A8] font-thin text-left">
+                                <tr class="border-b border-gray-300">
+                                    <th class="py-3">Nama Program</th>
+                                    <th class="py-3">Nominal Donasi (Rp)</th>
+                                    <th class="py-3">Tanggal Donasi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
 
-            <div class="bg-white flex-1 rounded-xl p-5 space-y-5 flex flex-col">
-                <div class="flex justify-between items-center">
-                    <p class="font-bold">Donasi Terbaru</p>
-                    <a href="#" class="text-[#1F7D53]">Lihat Semua</a>
-                </div>
-                <div class="overflow-y-auto grow h-0">
-                    <table class="w-full border-collapse">
-                        <thead class="text-sm text-[#8E98A8] font-thin text-left">
-                            <tr class="border-b border-gray-300">
-                                <th class="py-3">Nama Program</th>
-                                <th class="py-3">Nominal Donasi (Rp)</th>
-                                <th class="py-3">Tanggal Donasi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b border-gray-300">
-                                <td class="py-3">Kirim bantuan untuk warga Palestina</td>
-                                <td class="py-3">500.000</td>
-                                <td class="py-3">14 Mei 2025</td>
-                            </tr>
-                            <tr class="border-b border-gray-300">
-                                <td class="py-3">Kirim bantuan untuk warga Palestina</td>
-                                <td class="py-3">500.000</td>
-                                <td class="py-3">14 Mei 2025</td>
-                            </tr>
-                            <tr class="border-b border-gray-300">
-                                <td class="py-3">Kirim bantuan untuk warga Palestina</td>
-                                <td class="py-3">500.000</td>
-                                <td class="py-3">14 Mei 2025</td>
-                            </tr>
-                            <tr class="border-b border-gray-300">
-                                <td class="py-3">Kirim bantuan untuk warga Palestina</td>
-                                <td class="py-3">500.000</td>
-                                <td class="py-3">14 Mei 2025</td>
-                            </tr>
-                            <tr class="border-b border-gray-300">
-                                <td class="py-3">Kirim bantuan untuk warga Palestina</td>
-                                <td class="py-3">500.000</td>
-                                <td class="py-3">14 Mei 2025</td>
-                            </tr>
-                            <tr class="border-b border-gray-300">
-                                <td class="py-3">Kirim bantuan untuk warga Palestina</td>
-                                <td class="py-3">500.000</td>
-                                <td class="py-3">14 Mei 2025</td>
-                            </tr>
-                            <tr class="border-b border-gray-300">
-                                <td class="py-3">Kirim bantuan untuk warga Palestina</td>
-                                <td class="py-3">500.000</td>
-                                <td class="py-3">14 Mei 2025</td>
-                            </tr>
-                            <tr class="border-b border-gray-300">
-                                <td class="py-3">Kirim bantuan untuk warga Palestina</td>
-                                <td class="py-3">500.000</td>
-                                <td class="py-3">14 Mei 2025</td>
-                            </tr>
-                            <tr class="border-b border-gray-300">
-                                <td class="py-3">Kirim bantuan untuk warga Palestina</td>
-                                <td class="py-3">500.000</td>
-                                <td class="py-3">14 Mei 2025</td>
-                            </tr>
-                            <tr class="border-b border-gray-300">
-                                <td class="py-3">Kirim bantuan untuk warga Palestina</td>
-                                <td class="py-3">500.000</td>
-                                <td class="py-3">14 Mei 2025</td>
-                            </tr>
-                            <tr class="border-b border-gray-300">
-                                <td class="py-3">Kirim bantuan untuk warga Palestina</td>
-                                <td class="py-3">500.000</td>
-                                <td class="py-3">14 Mei 2025</td>
-                            </tr>
-                            <tr class="border-b border-gray-300">
-                                <td class="py-3">Kirim bantuan untuk warga Palestina</td>
-                                <td class="py-3">500.000</td>
-                                <td class="py-3">14 Mei 2025</td>
-                            </tr>
-                            <tr class="border-b border-gray-300">
-                                <td class="py-3">Kirim bantuan untuk warga Palestina</td>
-                                <td class="py-3">500.000</td>
-                                <td class="py-3">14 Mei 2025</td>
-                            </tr>
-                            <tr class="border-b border-gray-300">
-                                <td class="py-3">Kirim bantuan untuk warga Palestina</td>
-                                <td class="py-3">500.000</td>
-                                <td class="py-3">14 Mei 2025</td>
-                            </tr>
-                            <tr class="border-b border-gray-300">
-                                <td class="py-3">Kirim bantuan untuk warga Palestina</td>
-                                <td class="py-3">500.000</td>
-                                <td class="py-3">14 Mei 2025</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div id="riwayat-section" style="display:none;" class="space-y-8">
+                <!-- Konten Riwayat Donasi dari dashboard2.html -->
+                 <h1 class="font-bold">Riwayat Donasi</h1>
+
+                <div class="bg-white flex-1 rounded-xl p-5 space-y-8 flex flex-col">
+                    <div class="flex justify-end items-center">
+                        <a href="#" class="text-[#1F7D53]">Filter</a>
+                    </div>
+                    <div class="overflow-y-auto grow h-0">
+                        <table class="w-full border-collapse">
+                            <thead class="text-sm text-[#8E98A8] font-thin text-left">
+                                <tr class="border-b border-gray-300">
+                                    <th class="py-3">Nama Program</th>
+                                    <th class="py-3">Nominal Donasi (Rp)</th>
+                                    <th class="py-3">Status Pembayaran</th>
+                                    <th class="py-3">Tanggal Donasi</th>
+                                    <th class="py-3">Invoice</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">
+                                        <p
+                                            class="bg-[#1F7D53] text-white py-1 px-2 rounded-xl w-min whitespace-nowrap text-sm">
+                                            Terkonfirmasi</p>
+                                    </td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                    <td class="py-3 flex gap-x-2 items-center">
+                                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15 2.5V10.625C15 11.1223 15.1975 11.5992 15.5492 11.9508C15.9008 12.3025 16.3777 12.5 16.875 12.5H25V25C25 25.663 24.7366 26.2989 24.2678 26.7678C23.7989 27.2366 23.163 27.5 22.5 27.5H7.5C6.83696 27.5 6.20107 27.2366 5.73223 26.7678C5.26339 26.2989 5 25.663 5 25V5C5 4.33696 5.26339 3.70107 5.73223 3.23223C6.20107 2.76339 6.83696 2.5 7.5 2.5H15ZM13.7638 14.81C13.4645 16.7138 12.4689 18.4387 10.97 19.65C9.86125 20.545 10.875 22.3012 12.205 21.79C14.0035 21.0973 15.9952 21.0973 17.7937 21.79C19.1237 22.3025 20.1375 20.5462 19.0287 19.65C17.5298 18.4387 16.5342 16.7138 16.235 14.81C16.0138 13.4025 13.985 13.4012 13.7638 14.81ZM15 17.8788L16.0075 19.6213H13.995L15 17.8788ZM17.5 2.55375C17.9736 2.65419 18.4078 2.88999 18.75 3.2325L24.2675 8.75C24.61 9.09216 24.8458 9.5264 24.9463 10H17.5V2.55375Z"
+                                                fill="#1F7D53" />
+                                        </svg>
+                                        <p>PDF</p>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">
+                                        <p
+                                            class="bg-[#8E98A8] text-white py-1 px-2 rounded-xl w-min whitespace-nowrap text-sm">
+                                            Menunggu</p>
+                                    </td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                    <td class="py-3 flex gap-x-2 items-center">
+                                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15 2.5V10.625C15 11.1223 15.1975 11.5992 15.5492 11.9508C15.9008 12.3025 16.3777 12.5 16.875 12.5H25V25C25 25.663 24.7366 26.2989 24.2678 26.7678C23.7989 27.2366 23.163 27.5 22.5 27.5H7.5C6.83696 27.5 6.20107 27.2366 5.73223 26.7678C5.26339 26.2989 5 25.663 5 25V5C5 4.33696 5.26339 3.70107 5.73223 3.23223C6.20107 2.76339 6.83696 2.5 7.5 2.5H15ZM13.7638 14.81C13.4645 16.7138 12.4689 18.4387 10.97 19.65C9.86125 20.545 10.875 22.3012 12.205 21.79C14.0035 21.0973 15.9952 21.0973 17.7937 21.79C19.1237 22.3025 20.1375 20.5462 19.0287 19.65C17.5298 18.4387 16.5342 16.7138 16.235 14.81C16.0138 13.4025 13.985 13.4012 13.7638 14.81ZM15 17.8788L16.0075 19.6213H13.995L15 17.8788ZM17.5 2.55375C17.9736 2.65419 18.4078 2.88999 18.75 3.2325L24.2675 8.75C24.61 9.09216 24.8458 9.5264 24.9463 10H17.5V2.55375Z"
+                                                fill="#1F7D53" />
+                                        </svg>
+                                        <p>PDF</p>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">
+                                        <p
+                                            class="bg-[#1F7D53] text-white py-1 px-2 rounded-xl w-min whitespace-nowrap text-sm">
+                                            Terkonfirmasi</p>
+                                    </td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                    <td class="py-3 flex gap-x-2 items-center">
+                                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15 2.5V10.625C15 11.1223 15.1975 11.5992 15.5492 11.9508C15.9008 12.3025 16.3777 12.5 16.875 12.5H25V25C25 25.663 24.7366 26.2989 24.2678 26.7678C23.7989 27.2366 23.163 27.5 22.5 27.5H7.5C6.83696 27.5 6.20107 27.2366 5.73223 26.7678C5.26339 26.2989 5 25.663 5 25V5C5 4.33696 5.26339 3.70107 5.73223 3.23223C6.20107 2.76339 6.83696 2.5 7.5 2.5H15ZM13.7638 14.81C13.4645 16.7138 12.4689 18.4387 10.97 19.65C9.86125 20.545 10.875 22.3012 12.205 21.79C14.0035 21.0973 15.9952 21.0973 17.7937 21.79C19.1237 22.3025 20.1375 20.5462 19.0287 19.65C17.5298 18.4387 16.5342 16.7138 16.235 14.81C16.0138 13.4025 13.985 13.4012 13.7638 14.81ZM15 17.8788L16.0075 19.6213H13.995L15 17.8788ZM17.5 2.55375C17.9736 2.65419 18.4078 2.88999 18.75 3.2325L24.2675 8.75C24.61 9.09216 24.8458 9.5264 24.9463 10H17.5V2.55375Z"
+                                                fill="#1F7D53" />
+                                        </svg>
+                                        <p>PDF</p>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">
+                                        <p
+                                            class="bg-[#1F7D53] text-white py-1 px-2 rounded-xl w-min whitespace-nowrap text-sm">
+                                            Terkonfirmasi</p>
+                                    </td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                    <td class="py-3 flex gap-x-2 items-center">
+                                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15 2.5V10.625C15 11.1223 15.1975 11.5992 15.5492 11.9508C15.9008 12.3025 16.3777 12.5 16.875 12.5H25V25C25 25.663 24.7366 26.2989 24.2678 26.7678C23.7989 27.2366 23.163 27.5 22.5 27.5H7.5C6.83696 27.5 6.20107 27.2366 5.73223 26.7678C5.26339 26.2989 5 25.663 5 25V5C5 4.33696 5.26339 3.70107 5.73223 3.23223C6.20107 2.76339 6.83696 2.5 7.5 2.5H15ZM13.7638 14.81C13.4645 16.7138 12.4689 18.4387 10.97 19.65C9.86125 20.545 10.875 22.3012 12.205 21.79C14.0035 21.0973 15.9952 21.0973 17.7937 21.79C19.1237 22.3025 20.1375 20.5462 19.0287 19.65C17.5298 18.4387 16.5342 16.7138 16.235 14.81C16.0138 13.4025 13.985 13.4012 13.7638 14.81ZM15 17.8788L16.0075 19.6213H13.995L15 17.8788ZM17.5 2.55375C17.9736 2.65419 18.4078 2.88999 18.75 3.2325L24.2675 8.75C24.61 9.09216 24.8458 9.5264 24.9463 10H17.5V2.55375Z"
+                                                fill="#1F7D53" />
+                                        </svg>
+                                        <p>PDF</p>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">
+                                        <p
+                                            class="bg-[#1F7D53] text-white py-1 px-2 rounded-xl w-min whitespace-nowrap text-sm">
+                                            Terkonfirmasi</p>
+                                    </td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                    <td class="py-3 flex gap-x-2 items-center">
+                                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15 2.5V10.625C15 11.1223 15.1975 11.5992 15.5492 11.9508C15.9008 12.3025 16.3777 12.5 16.875 12.5H25V25C25 25.663 24.7366 26.2989 24.2678 26.7678C23.7989 27.2366 23.163 27.5 22.5 27.5H7.5C6.83696 27.5 6.20107 27.2366 5.73223 26.7678C5.26339 26.2989 5 25.663 5 25V5C5 4.33696 5.26339 3.70107 5.73223 3.23223C6.20107 2.76339 6.83696 2.5 7.5 2.5H15ZM13.7638 14.81C13.4645 16.7138 12.4689 18.4387 10.97 19.65C9.86125 20.545 10.875 22.3012 12.205 21.79C14.0035 21.0973 15.9952 21.0973 17.7937 21.79C19.1237 22.3025 20.1375 20.5462 19.0287 19.65C17.5298 18.4387 16.5342 16.7138 16.235 14.81C16.0138 13.4025 13.985 13.4012 13.7638 14.81ZM15 17.8788L16.0075 19.6213H13.995L15 17.8788ZM17.5 2.55375C17.9736 2.65419 18.4078 2.88999 18.75 3.2325L24.2675 8.75C24.61 9.09216 24.8458 9.5264 24.9463 10H17.5V2.55375Z"
+                                                fill="#1F7D53" />
+                                        </svg>
+                                        <p>PDF</p>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">
+                                        <p
+                                            class="bg-[#1F7D53] text-white py-1 px-2 rounded-xl w-min whitespace-nowrap text-sm">
+                                            Terkonfirmasi</p>
+                                    </td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                    <td class="py-3 flex gap-x-2 items-center">
+                                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15 2.5V10.625C15 11.1223 15.1975 11.5992 15.5492 11.9508C15.9008 12.3025 16.3777 12.5 16.875 12.5H25V25C25 25.663 24.7366 26.2989 24.2678 26.7678C23.7989 27.2366 23.163 27.5 22.5 27.5H7.5C6.83696 27.5 6.20107 27.2366 5.73223 26.7678C5.26339 26.2989 5 25.663 5 25V5C5 4.33696 5.26339 3.70107 5.73223 3.23223C6.20107 2.76339 6.83696 2.5 7.5 2.5H15ZM13.7638 14.81C13.4645 16.7138 12.4689 18.4387 10.97 19.65C9.86125 20.545 10.875 22.3012 12.205 21.79C14.0035 21.0973 15.9952 21.0973 17.7937 21.79C19.1237 22.3025 20.1375 20.5462 19.0287 19.65C17.5298 18.4387 16.5342 16.7138 16.235 14.81C16.0138 13.4025 13.985 13.4012 13.7638 14.81ZM15 17.8788L16.0075 19.6213H13.995L15 17.8788ZM17.5 2.55375C17.9736 2.65419 18.4078 2.88999 18.75 3.2325L24.2675 8.75C24.61 9.09216 24.8458 9.5264 24.9463 10H17.5V2.55375Z"
+                                                fill="#1F7D53" />
+                                        </svg>
+                                        <p>PDF</p>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">
+                                        <p
+                                            class="bg-[#1F7D53] text-white py-1 px-2 rounded-xl w-min whitespace-nowrap text-sm">
+                                            Terkonfirmasi</p>
+                                    </td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                    <td class="py-3 flex gap-x-2 items-center">
+                                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15 2.5V10.625C15 11.1223 15.1975 11.5992 15.5492 11.9508C15.9008 12.3025 16.3777 12.5 16.875 12.5H25V25C25 25.663 24.7366 26.2989 24.2678 26.7678C23.7989 27.2366 23.163 27.5 22.5 27.5H7.5C6.83696 27.5 6.20107 27.2366 5.73223 26.7678C5.26339 26.2989 5 25.663 5 25V5C5 4.33696 5.26339 3.70107 5.73223 3.23223C6.20107 2.76339 6.83696 2.5 7.5 2.5H15ZM13.7638 14.81C13.4645 16.7138 12.4689 18.4387 10.97 19.65C9.86125 20.545 10.875 22.3012 12.205 21.79C14.0035 21.0973 15.9952 21.0973 17.7937 21.79C19.1237 22.3025 20.1375 20.5462 19.0287 19.65C17.5298 18.4387 16.5342 16.7138 16.235 14.81C16.0138 13.4025 13.985 13.4012 13.7638 14.81ZM15 17.8788L16.0075 19.6213H13.995L15 17.8788ZM17.5 2.55375C17.9736 2.65419 18.4078 2.88999 18.75 3.2325L24.2675 8.75C24.61 9.09216 24.8458 9.5264 24.9463 10H17.5V2.55375Z"
+                                                fill="#1F7D53" />
+                                        </svg>
+                                        <p>PDF</p>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">
+                                        <p
+                                            class="bg-[#1F7D53] text-white py-1 px-2 rounded-xl w-min whitespace-nowrap text-sm">
+                                            Terkonfirmasi</p>
+                                    </td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                    <td class="py-3 flex gap-x-2 items-center">
+                                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15 2.5V10.625C15 11.1223 15.1975 11.5992 15.5492 11.9508C15.9008 12.3025 16.3777 12.5 16.875 12.5H25V25C25 25.663 24.7366 26.2989 24.2678 26.7678C23.7989 27.2366 23.163 27.5 22.5 27.5H7.5C6.83696 27.5 6.20107 27.2366 5.73223 26.7678C5.26339 26.2989 5 25.663 5 25V5C5 4.33696 5.26339 3.70107 5.73223 3.23223C6.20107 2.76339 6.83696 2.5 7.5 2.5H15ZM13.7638 14.81C13.4645 16.7138 12.4689 18.4387 10.97 19.65C9.86125 20.545 10.875 22.3012 12.205 21.79C14.0035 21.0973 15.9952 21.0973 17.7937 21.79C19.1237 22.3025 20.1375 20.5462 19.0287 19.65C17.5298 18.4387 16.5342 16.7138 16.235 14.81C16.0138 13.4025 13.985 13.4012 13.7638 14.81ZM15 17.8788L16.0075 19.6213H13.995L15 17.8788ZM17.5 2.55375C17.9736 2.65419 18.4078 2.88999 18.75 3.2325L24.2675 8.75C24.61 9.09216 24.8458 9.5264 24.9463 10H17.5V2.55375Z"
+                                                fill="#1F7D53" />
+                                        </svg>
+                                        <p>PDF</p>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">
+                                        <p
+                                            class="bg-[#1F7D53] text-white py-1 px-2 rounded-xl w-min whitespace-nowrap text-sm">
+                                            Terkonfirmasi</p>
+                                    </td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                    <td class="py-3 flex gap-x-2 items-center">
+                                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15 2.5V10.625C15 11.1223 15.1975 11.5992 15.5492 11.9508C15.9008 12.3025 16.3777 12.5 16.875 12.5H25V25C25 25.663 24.7366 26.2989 24.2678 26.7678C23.7989 27.2366 23.163 27.5 22.5 27.5H7.5C6.83696 27.5 6.20107 27.2366 5.73223 26.7678C5.26339 26.2989 5 25.663 5 25V5C5 4.33696 5.26339 3.70107 5.73223 3.23223C6.20107 2.76339 6.83696 2.5 7.5 2.5H15ZM13.7638 14.81C13.4645 16.7138 12.4689 18.4387 10.97 19.65C9.86125 20.545 10.875 22.3012 12.205 21.79C14.0035 21.0973 15.9952 21.0973 17.7937 21.79C19.1237 22.3025 20.1375 20.5462 19.0287 19.65C17.5298 18.4387 16.5342 16.7138 16.235 14.81C16.0138 13.4025 13.985 13.4012 13.7638 14.81ZM15 17.8788L16.0075 19.6213H13.995L15 17.8788ZM17.5 2.55375C17.9736 2.65419 18.4078 2.88999 18.75 3.2325L24.2675 8.75C24.61 9.09216 24.8458 9.5264 24.9463 10H17.5V2.55375Z"
+                                                fill="#1F7D53" />
+                                        </svg>
+                                        <p>PDF</p>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">
+                                        <p
+                                            class="bg-[#1F7D53] text-white py-1 px-2 rounded-xl w-min whitespace-nowrap text-sm">
+                                            Terkonfirmasi</p>
+                                    </td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                    <td class="py-3 flex gap-x-2 items-center">
+                                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15 2.5V10.625C15 11.1223 15.1975 11.5992 15.5492 11.9508C15.9008 12.3025 16.3777 12.5 16.875 12.5H25V25C25 25.663 24.7366 26.2989 24.2678 26.7678C23.7989 27.2366 23.163 27.5 22.5 27.5H7.5C6.83696 27.5 6.20107 27.2366 5.73223 26.7678C5.26339 26.2989 5 25.663 5 25V5C5 4.33696 5.26339 3.70107 5.73223 3.23223C6.20107 2.76339 6.83696 2.5 7.5 2.5H15ZM13.7638 14.81C13.4645 16.7138 12.4689 18.4387 10.97 19.65C9.86125 20.545 10.875 22.3012 12.205 21.79C14.0035 21.0973 15.9952 21.0973 17.7937 21.79C19.1237 22.3025 20.1375 20.5462 19.0287 19.65C17.5298 18.4387 16.5342 16.7138 16.235 14.81C16.0138 13.4025 13.985 13.4012 13.7638 14.81ZM15 17.8788L16.0075 19.6213H13.995L15 17.8788ZM17.5 2.55375C17.9736 2.65419 18.4078 2.88999 18.75 3.2325L24.2675 8.75C24.61 9.09216 24.8458 9.5264 24.9463 10H17.5V2.55375Z"
+                                                fill="#1F7D53" />
+                                        </svg>
+                                        <p>PDF</p>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">
+                                        <p
+                                            class="bg-[#1F7D53] text-white py-1 px-2 rounded-xl w-min whitespace-nowrap text-sm">
+                                            Terkonfirmasi</p>
+                                    </td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                    <td class="py-3 flex gap-x-2 items-center">
+                                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15 2.5V10.625C15 11.1223 15.1975 11.5992 15.5492 11.9508C15.9008 12.3025 16.3777 12.5 16.875 12.5H25V25C25 25.663 24.7366 26.2989 24.2678 26.7678C23.7989 27.2366 23.163 27.5 22.5 27.5H7.5C6.83696 27.5 6.20107 27.2366 5.73223 26.7678C5.26339 26.2989 5 25.663 5 25V5C5 4.33696 5.26339 3.70107 5.73223 3.23223C6.20107 2.76339 6.83696 2.5 7.5 2.5H15ZM13.7638 14.81C13.4645 16.7138 12.4689 18.4387 10.97 19.65C9.86125 20.545 10.875 22.3012 12.205 21.79C14.0035 21.0973 15.9952 21.0973 17.7937 21.79C19.1237 22.3025 20.1375 20.5462 19.0287 19.65C17.5298 18.4387 16.5342 16.7138 16.235 14.81C16.0138 13.4025 13.985 13.4012 13.7638 14.81ZM15 17.8788L16.0075 19.6213H13.995L15 17.8788ZM17.5 2.55375C17.9736 2.65419 18.4078 2.88999 18.75 3.2325L24.2675 8.75C24.61 9.09216 24.8458 9.5264 24.9463 10H17.5V2.55375Z"
+                                                fill="#1F7D53" />
+                                        </svg>
+                                        <p>PDF</p>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">
+                                        <p
+                                            class="bg-[#1F7D53] text-white py-1 px-2 rounded-xl w-min whitespace-nowrap text-sm">
+                                            Terkonfirmasi</p>
+                                    </td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                    <td class="py-3 flex gap-x-2 items-center">
+                                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15 2.5V10.625C15 11.1223 15.1975 11.5992 15.5492 11.9508C15.9008 12.3025 16.3777 12.5 16.875 12.5H25V25C25 25.663 24.7366 26.2989 24.2678 26.7678C23.7989 27.2366 23.163 27.5 22.5 27.5H7.5C6.83696 27.5 6.20107 27.2366 5.73223 26.7678C5.26339 26.2989 5 25.663 5 25V5C5 4.33696 5.26339 3.70107 5.73223 3.23223C6.20107 2.76339 6.83696 2.5 7.5 2.5H15ZM13.7638 14.81C13.4645 16.7138 12.4689 18.4387 10.97 19.65C9.86125 20.545 10.875 22.3012 12.205 21.79C14.0035 21.0973 15.9952 21.0973 17.7937 21.79C19.1237 22.3025 20.1375 20.5462 19.0287 19.65C17.5298 18.4387 16.5342 16.7138 16.235 14.81C16.0138 13.4025 13.985 13.4012 13.7638 14.81ZM15 17.8788L16.0075 19.6213H13.995L15 17.8788ZM17.5 2.55375C17.9736 2.65419 18.4078 2.88999 18.75 3.2325L24.2675 8.75C24.61 9.09216 24.8458 9.5264 24.9463 10H17.5V2.55375Z"
+                                                fill="#1F7D53" />
+                                        </svg>
+                                        <p>PDF</p>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-300">
+                                    <td class="py-3">Kirim bantuan untuk warga Palestina</td>
+                                    <td class="py-3">500.000</td>
+                                    <td class="py-3">
+                                        <p
+                                            class="bg-[#1F7D53] text-white py-1 px-2 rounded-xl w-min whitespace-nowrap text-sm">
+                                            Terkonfirmasi</p>
+                                    </td>
+                                    <td class="py-3">14 Mei 2025</td>
+                                    <td class="py-3 flex gap-x-2 items-center">
+                                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M15 2.5V10.625C15 11.1223 15.1975 11.5992 15.5492 11.9508C15.9008 12.3025 16.3777 12.5 16.875 12.5H25V25C25 25.663 24.7366 26.2989 24.2678 26.7678C23.7989 27.2366 23.163 27.5 22.5 27.5H7.5C6.83696 27.5 6.20107 27.2366 5.73223 26.7678C5.26339 26.2989 5 25.663 5 25V5C5 4.33696 5.26339 3.70107 5.73223 3.23223C6.20107 2.76339 6.83696 2.5 7.5 2.5H15ZM13.7638 14.81C13.4645 16.7138 12.4689 18.4387 10.97 19.65C9.86125 20.545 10.875 22.3012 12.205 21.79C14.0035 21.0973 15.9952 21.0973 17.7937 21.79C19.1237 22.3025 20.1375 20.5462 19.0287 19.65C17.5298 18.4387 16.5342 16.7138 16.235 14.81C16.0138 13.4025 13.985 13.4012 13.7638 14.81ZM15 17.8788L16.0075 19.6213H13.995L15 17.8788ZM17.5 2.55375C17.9736 2.65419 18.4078 2.88999 18.75 3.2325L24.2675 8.75C24.61 9.09216 24.8458 9.5264 24.9463 10H17.5V2.55375Z"
+                                                fill="#1F7D53" />
+                                        </svg>
+                                        <p>PDF</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+
+            
 
             <p class="text-[#8E98A8] text-center text-sm">© 2025 Blockchain Donation Inc. Copyright and rights reserved
             </p>
         </div>
     </div>
-
     <script>
-        const token = localStorage.getItem("token");
+        document.addEventListener("DOMContentLoaded", async () => {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                window.location.href = "/login";
+                return;
+            }
 
-        if (!token) {
-            // Kalau tidak login, redirect ke halaman login
-            window.location.href = "/login";
-        }
+            try {
+                const res = await fetch("/api/dashboard", {
+                    headers: {
+                        "Authorization": "Bearer " + token
+                    }
+                });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.message || "Gagal memuat dashboard");
+
+                // Contoh: update jumlah donasi dan dana didonasikan
+                const jumlahDonasi = data.data.donations.length;
+                const totalDonasi = data.data.donations.reduce((sum, d) => sum + d.amount, 0);
+
+                document.querySelector('[data-jumlah-donasi]').textContent = jumlahDonasi;
+                document.querySelector('[data-total-donasi]').textContent = "Rp " + totalDonasi.toLocaleString();
+
+                // Tampilkan donasi terbaru
+                const tbody = document.querySelector("tbody");
+                tbody.innerHTML = "";
+                data.data.donations.slice(0, 10).forEach(donasi => {
+                    const tr = document.createElement("tr");
+                    tr.className = "border-b border-gray-300";
+                    tr.innerHTML = `
+                        <td class="py-3">${donasi.campaign.title}</td>
+                        <td class="py-3">${donasi.amount.toLocaleString()}</td>
+                        <td class="py-3">${new Date(donasi.createdAt).toLocaleDateString("id-ID", { day: "2-digit", month: "long", year: "numeric" })}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } catch (err) {
+                alert(err.message);
+            }
+        });
+    </script>
+    <script>
+        document.getElementById('btn-dashboard').onclick = function(e) {
+            e.preventDefault();
+            document.getElementById('dashboard-section').style.display = '';
+            document.getElementById('riwayat-section').style.display = 'none';
+
+            // Aktifkan tombol Dashboard, nonaktifkan Riwayat
+            document.getElementById('btn-dashboard').classList.add('bg-white');
+            document.getElementById('btn-dashboard').classList.remove('bg-transparent');
+            document.getElementById('btn-riwayat').classList.remove('bg-white');
+            document.getElementById('btn-riwayat').classList.add('bg-transparent');
+        };
+        document.getElementById('btn-riwayat').onclick = function(e) {
+            e.preventDefault();
+            document.getElementById('dashboard-section').style.display = 'none';
+            document.getElementById('riwayat-section').style.display = '';
+
+            // Aktifkan tombol Riwayat, nonaktifkan Dashboard
+            document.getElementById('btn-riwayat').classList.add('bg-white');
+            document.getElementById('btn-riwayat').classList.remove('bg-transparent');
+            document.getElementById('btn-dashboard').classList.remove('bg-white');
+            document.getElementById('btn-dashboard').classList.add('bg-transparent');
+        };
+        document.getElementById('btn-logout').onclick = function(e) {
+            e.preventDefault();
+            localStorage.removeItem('token');
+            window.location.href = '/login';
+        };
     </script>
 </body>
 

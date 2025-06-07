@@ -1,12 +1,9 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const dashboardController = require("../controllers/dashboard.controller");
-const authMiddleware = require("../middlewares/auth.middleware");
+const auth = require('../middlewares/auth.middleware');
+const controller = require('../controllers/dashboard.controller');
 
-// contoh route dashboard, misal GET /api/dashboard/
-router.get("/", authMiddleware, dashboardController.getDashboard);
-
-// contoh route lain, misal GET /api/dashboard/stats
-// router.get("/stats", authMiddleware, dashboardController.getDashboardStats);
+// Semua endpoint dashboard harus login
+router.get('/', auth, controller.getDashboard);
 
 module.exports = router;
