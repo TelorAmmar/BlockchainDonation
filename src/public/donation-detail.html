@@ -40,30 +40,67 @@
         
         <div class="grid grid-cols-12 gap-10">
             <div class="col-span-8 bg-white rounded-xl p-8 space-y-5">
-                <img id="campaign-image" src="./assets/images/donation-bg.png" alt="Campaign Image">
+                <div id="detail-section" class="space-y-8"> 
+                    <!-- Konten campaign -->
+                    <img id="campaign-image" src="./assets/images/donation-bg.png" alt="Campaign Image">
 
-                <h3 class="text-2xl font-bold" id="campaign-title">Loading...</h3>
+                    <h3 class="text-2xl font-bold" id="campaign-title">Loading...</h3>
 
-                <div class="flex gap-x-5 items-center">
-                    <h3 class="text-xl font-bold text-[#1F7D53]" id="collected-amount">Rp. -</h3>
-                    <p class="text-[#8E98A8]">Terkumpul dari</p>
-                    <h3 class="text-xl font-bold" id="target-amount">Rp. -</h3>
+                    <div class="flex gap-x-5 items-center">
+                        <h3 class="text-xl font-bold text-[#1F7D53]" id="collected-amount">Rp. -</h3>
+                        <p class="text-[#8E98A8]">Terkumpul dari</p>
+                        <h3 class="text-xl font-bold" id="target-amount">Rp. -</h3>
+                    </div>
+
+                    <div class="relative w-full rounded-full h-3 bg-[#E9F2EE]">
+                        <div id="progress-bar" class="absolute rounded-full inset-0 h-3 bg-[#1F7D53]" style="width: 0%"></div>
+                    </div>
+
+
+                    <div class="flex gap-x-5 items-center">
+                        <img src="./assets/images/partner-1.png" class="h-12 object-contain">
+                        <div class="flex gap-x-2 items-center">
+                            <p id="campaign-user-name" class="text-xl font-semibold"></p>
+                            <img src="./assets/vectors/verified.png" class="size-5 object-contain">
+                        </div>
+                    </div>
+
+                    <p class="text-[#8E98A8] whitespace-pre-line" id="campaign-description">Loading...</p>
                 </div>
+                
+                <div id="donatur-section" style="display:none;"> 
+                    <!-- Konten donatur -->
+                    <div class="space-y-1">
+                        <button id="btn-prev" class="block text-center rounded-xl text-white py-2 bg-[#1F7D53] font-bold">Kembali</button>
+                        <h3 class="text-2xl font-bold">Info Donatur</h3>
+                        <p><a href="/login" class="text-[#1F7D53] underline">Masuk akun</a> atau lengkapi data di bawah ini</p>
+                    </div>
 
-                <div class="relative w-full rounded-full h-3 bg-[#E9F2EE]">
-                    <div id="progress-bar" class="absolute rounded-full inset-0 h-3 bg-[#1F7D53]" style="width: 0%"></div>
-                </div>
-
-
-                <div class="flex gap-x-5 items-center">
-                    <img src="./assets/images/partner-1.png" class="h-12 object-contain">
-                    <div class="flex gap-x-2 items-center">
-                        <p id="campaign-user-name" class="text-xl font-semibold"></p>
-                        <img src="./assets/vectors/verified.png" class="size-5 object-contain">
+                    <div class="space-y-2">
+                        <p>Nama Lengkap <span class="text-red-700">*</span></p>
+                        <input type="text" class="w-full rounded-xl border border-[#8E98A880] py-2 px-3" placeholder="Nama Lengkap">
+                    </div>
+                    <div class="space-y-2">
+                        <p>No. Whatsapp <span class="text-red-700">*</span></p>
+                        <input type="text" class="w-full rounded-xl border border-[#8E98A880] py-2 px-3" placeholder="0812345678910">
+                    </div>
+                    <div class="space-y-2">
+                        <p>Email</p>
+                        <input type="text" class="w-full rounded-xl border border-[#8E98A880] py-2 px-3" placeholder="example@gmail.com">
+                    </div>
+                    <div class="space-y-2">
+                        <p>Pesan atau Komentar</p>
+                        <textarea class="w-full rounded-xl border border-[#8E98A880] py-2 px-3" rows="3"></textarea>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p>Sembunyikan Nama Saya</p>
+                        <div class="h-8 w-14 bg-[#1F7D53] rounded-full relative">
+                            <div class="absolute right-0 top-0 flex items-center justify-end h-full pr-1">
+                                <div class="bg-white rounded-full size-6"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <p class="text-[#8E98A8] whitespace-pre-line" id="campaign-description">Loading...</p>
             </div>
 
             <div class="col-span-4 bg-white rounded-xl p-8 space-y-5 h-min">
@@ -72,24 +109,30 @@
                 <div class="space-y-5">
                     <div class="space-y-2">
                         <p>Nominal</p>
-                        <h3 class="text-xl font-bold rounded-xl w-full border border-[#8E98A880] p-3">Rp 30.000</h3>
+                        <input
+                            id="nominal-input"
+                            type="text"
+                            min="10000"
+                            class="text-xl font-bold rounded-xl w-full border border-[#8E98A880] p-3"
+                            value="Rp 30.000"
+                        />
                     </div>
 
                     <div class="space-y-2">
                         <p>Pilih Nominal</p>
-                        <div class="grid grid-cols-2 gap-3">
-                            <button class="rounded-xl text-white py-2 bg-[#1F7D53] font-bold">Rp 30.000</button>
-                            <button class="rounded-xl py-2 font-bold border border-[#8E98A880]">Rp 50.000</button>
-                            <button class="rounded-xl py-2 font-bold border border-[#8E98A880]">Rp 75.000</button>
-                            <button class="rounded-xl py-2 font-bold border border-[#8E98A880]">Rp 100.000</button>
-                            <button class="rounded-xl py-2 font-bold border border-[#8E98A880]">Rp 200.000</button>
-                            <button class="rounded-xl py-2 font-bold border border-[#8E98A880]">Rp 500.000</button>
+                        <div class="grid grid-cols-2 gap-3" id="nominal-buttons">
+                            <button class="rounded-xl text-white py-2 bg-[#1F7D53] font-bold" data-value="30000">Rp 30.000</button>
+                            <button class="rounded-xl py-2 font-bold border border-[#8E98A880]" data-value="50000">Rp 50.000</button>
+                            <button class="rounded-xl py-2 font-bold border border-[#8E98A880]" data-value="75000">Rp 75.000</button>
+                            <button class="rounded-xl py-2 font-bold border border-[#8E98A880]" data-value="100000">Rp 100.000</button>
+                            <button class="rounded-xl py-2 font-bold border border-[#8E98A880]" data-value="200000">Rp 200.000</button>
+                            <button class="rounded-xl py-2 font-bold border border-[#8E98A880]" data-value="500000">Rp 500.000</button>
                         </div>
                         <p class="text-[#8E98A8]">Minimum donasi Rp 10.000</p>
                     </div>
 
                 </div>
-                <a href="./donation-detail-2.html" class="block text-center rounded-xl text-white py-2 bg-[#1F7D53] font-bold w-full">Selanjutnya</a>
+                <button id="btn-next" class="block text-center rounded-xl text-white py-2 bg-[#1F7D53] font-bold w-full">Selanjutnya</button>
             </div>
         </div>
     </div>
@@ -165,6 +208,72 @@
                 window.location.reload();
                 });
             }
+
+        // Script untuk sinkronisasi tombol dan input nominal
+        const nominalInput = document.getElementById('nominal-input');
+        const nominalButtons = document.querySelectorAll('#nominal-buttons button');
+
+        nominalButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Set value input sesuai tombol
+                nominalInput.value = this.dataset.value;
+                // Update style tombol
+                nominalButtons.forEach(b => b.classList.remove('bg-[#1F7D53]', 'text-white'));
+                nominalButtons.forEach(b => b.classList.add('border', 'border-[#8E98A880]'));
+                this.classList.add('bg-[#1F7D53]', 'text-white');
+                this.classList.remove('border', 'border-[#8E98A880]');
+            });
+        });
+
+        // Jika user mengetik manual, hilangkan highlight tombol
+        nominalInput.addEventListener('input', function() {
+            nominalButtons.forEach(b => b.classList.remove('bg-[#1F7D53]', 'text-white'));
+            nominalButtons.forEach(b => b.classList.add('border', 'border-[#8E98A880]'));
+        });
+
+        // Fungsi format angka ke Rupiah
+        function formatRupiah(angka) {
+            angka = angka.replace(/[^0-9]/g, '');
+            if (!angka) return '';
+            return 'Rp ' + parseInt(angka, 10).toLocaleString('id-ID');
+        }
+
+        // Saat tombol diklik, input terisi format Rupiah
+        nominalButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                nominalInput.value = formatRupiah(this.dataset.value);
+                // ...highlight logic...
+                nominalButtons.forEach(b => b.classList.remove('bg-[#1F7D53]', 'text-white'));
+                nominalButtons.forEach(b => b.classList.add('border', 'border-[#8E98A880]'));
+                this.classList.add('bg-[#1F7D53]', 'text-white');
+                this.classList.remove('border', 'border-[#8E98A880]');
+            });
+        });
+
+        // Saat user mengetik, tetap format ke Rupiah
+        nominalInput.addEventListener('input', function() {
+            this.value = formatRupiah(this.value);
+            nominalButtons.forEach(b => b.classList.remove('bg-[#1F7D53]', 'text-white'));
+            nominalButtons.forEach(b => b.classList.add('border', 'border-[#8E98A880]'));
+        });
+
+        // Jika ingin mengambil nilai angka saja:
+        function getNominalValue() {
+            return parseInt(nominalInput.value.replace(/[^0-9]/g, ''), 10) || 0;
+        }
+
+        document.getElementById('btn-next').onclick = function(e) {
+            e.preventDefault();
+            document.getElementById('detail-section').style.display = 'none';
+            document.getElementById('donatur-section').style.display = '';
+        };
+        document.getElementById('btn-prev').onclick = function(e) {
+            e.preventDefault();
+             document.getElementById('detail-section').style.display = '';
+            document.getElementById('donatur-section').style.display = 'none';
+        };
     </script>
 
 </body>
