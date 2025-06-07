@@ -71,7 +71,7 @@
                 <div id="donatur-section" style="display:none;"> 
                     <!-- Konten donatur -->
                     <div class="space-y-1">
-                        <button id="btn-prev" class="block text-center rounded-xl text-white py-2 bg-[#1F7D53] font-bold">Kembali</button>
+                        <button id="btn-prev" class="block text-center rounded-xl text-white py-2 px-3 bg-[#1F7D53] font-bold">Kembali</button>
                         <h3 class="text-2xl font-bold">Info Donatur</h3>
                         <p><a href="/login" class="text-[#1F7D53] underline">Masuk akun</a> atau lengkapi data di bawah ini</p>
                     </div>
@@ -133,6 +133,7 @@
 
                 </div>
                 <button id="btn-next" class="block text-center rounded-xl text-white py-2 bg-[#1F7D53] font-bold w-full">Selanjutnya</button>
+                <button id="btn-donate" class="block text-center rounded-xl text-white py-2 bg-[#1F7D53] font-bold w-full" style="display:none;">Donasi</button>
             </div>
         </div>
     </div>
@@ -264,15 +265,80 @@
             return parseInt(nominalInput.value.replace(/[^0-9]/g, ''), 10) || 0;
         }
 
-        document.getElementById('btn-next').onclick = function(e) {
+        // Fungsi untuk mengisi form donatur dengan data user
+        async function autofillDonaturForm() {
+            const token = localStorage.getItem("token");
+            if (!token) return;
+
+            try {
+                const res = await fetch("/api/dashboard", {
+                    headers: { "Authorization": "Bearer " + token }
+                });
+                const result = await res.json();
+                if (!result.data) return;
+
+                const user = result.data;
+                document.querySelector('#donatur-section input[placeholder="Nama Lengkap"]').value = user.name || '';
+                document.querySelector('#donatur-section input[placeholder="0812345678910"]').value = user.whatsapp || '';
+                document.querySelector('#donatur-section input[placeholder="example@gmail.com"]').value = user.email || '';
+            } catch (err) {
+                // Bisa diabaikan jika user belum login
+            }
+        }
+
+        document.getElementById('btn-next').onclick = async function(e) {
             e.preventDefault();
             document.getElementById('detail-section').style.display = 'none';
             document.getElementById('donatur-section').style.display = '';
+            document.getElementById('btn-next').style.display = 'none';
+            document.getElementById('btn-donate').style.display = '';
+            await autofillDonaturForm();
         };
+
         document.getElementById('btn-prev').onclick = function(e) {
             e.preventDefault();
-             document.getElementById('detail-section').style.display = '';
+            document.getElementById('detail-section').style.display = '';
             document.getElementById('donatur-section').style.display = 'none';
+            document.getElementById('btn-next').style.display = '';
+            document.getElementById('btn-donate').style.display = 'none';
+        };
+
+        document.getElementById('btn-donate').onclick = async function(e) {
+            e.preventDefault();
+
+            const params = new URLSearchParams(window.location.search);
+            const campaignId = params.get('id');
+            const token = localStorage.getItem("token");
+
+            // Ambil nilai
+            const amount = getNominalValue();
+            const message = document.querySelector('#donatur-section textarea').value;
+
+            if (!amount || amount < 10000) {
+                alert("Nominal donasi minimal Rp 10.000");
+                return;
+            }
+
+            try {
+                const res = await fetch(`/api/donations/${campaignId}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        ...(token && { "Authorization": "Bearer " + token })
+                    },
+                    body: JSON.stringify({ amount, message })
+                });
+                const result = await res.json();
+                if (result.success) {
+                    alert("Donasi berhasil! Terima kasih.");
+                    window.location.href = "/dashboard";
+                } else {
+                    alert(result.message || "Gagal melakukan donasi");
+                }
+            } catch (err) {
+                alert("Terjadi kesalahan saat mengirim donasi");
+                console.error("Donasi error:", err);
+            }
         };
     </script>
 
