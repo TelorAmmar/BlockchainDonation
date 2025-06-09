@@ -210,7 +210,6 @@
                 });
             }
 
-        // Script untuk sinkronisasi tombol dan input nominal
         const nominalInput = document.getElementById('nominal-input');
         const nominalButtons = document.querySelectorAll('#nominal-buttons button');
 
@@ -245,7 +244,7 @@
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 nominalInput.value = formatRupiah(this.dataset.value);
-                // ...highlight logic...
+                
                 nominalButtons.forEach(b => b.classList.remove('bg-[#1F7D53]', 'text-white'));
                 nominalButtons.forEach(b => b.classList.add('border', 'border-[#8E98A880]'));
                 this.classList.add('bg-[#1F7D53]', 'text-white');
@@ -253,14 +252,13 @@
             });
         });
 
-        // Saat user mengetik, tetap format ke Rupiah
+        // Format ke Rupiah
         nominalInput.addEventListener('input', function() {
             this.value = formatRupiah(this.value);
             nominalButtons.forEach(b => b.classList.remove('bg-[#1F7D53]', 'text-white'));
             nominalButtons.forEach(b => b.classList.add('border', 'border-[#8E98A880]'));
         });
 
-        // Jika ingin mengambil nilai angka saja:
         function getNominalValue() {
             return parseInt(nominalInput.value.replace(/[^0-9]/g, ''), 10) || 0;
         }
@@ -282,7 +280,7 @@
                 document.querySelector('#donatur-section input[placeholder="0812345678910"]').value = user.whatsapp || '';
                 document.querySelector('#donatur-section input[placeholder="example@gmail.com"]').value = user.email || '';
             } catch (err) {
-                // Bisa diabaikan jika user belum login
+                
             }
         }
 
